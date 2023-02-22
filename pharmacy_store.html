@@ -146,15 +146,16 @@ body{
 
  
     var availableTags = [
-    {name:'Cetirizine', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/1.jpg'},
-    {name:'Azithromycin', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/2.jpg'},
-    {name:'Glyxambi', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/3.jpg'},
-    {name:'Biogesic', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/4.jpg'},
-    {name:'Bioflu', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/5.jpg'},
-    {name:'Advil Liquid Gel Capsule', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/6.jpg'},
-    {name:'Diamicron MR', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/7.jpg'},
-    {name:'Calpol', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/8.jpg'},
-    {name:'Glucotin', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/cm/9.jpg'}, 
+    {name:'Cetirizine', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/1.png'},
+    {name:'Azithromycin', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/2.png'},
+    {name:'Glyxambi', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/3.png'},
+    {name:'Biogesic', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/4.png'},
+    {name:'Bioflu', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/5.png'},
+    {name:'Advil Liquid Gel Capsule', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/6.png'},
+    {name:'Diamicron MR', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/7.png'},
+    {name:'Calpol', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/8.png'},
+
+
   ];
 
   $(function() {
@@ -167,13 +168,20 @@ body{
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
         if (obj.name.toLowerCase().indexOf(val) != -1) {
           console.log(obj);
-          $(".users").append('<div class="user-card">test</div>');
+          // crop the image
+          $(".users").append(`<div class="user-card">
+            <div>
+              <img class="image-medicine" 
+              style = "width: 200px; height: 200px; object-fit: cover; border-radius: 50%;"
+              
+              src="${obj.image}" alt="">
+            </div>`);
         }
       });
     }
     $(".not-found").toggle($(".users").find("img").length==0);
   });
-});
+});x
 
 
   
