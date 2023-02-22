@@ -3,16 +3,23 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+*{
+  /** disable scrolling on mobile view **/
+  overflow: hidden;
+}
 body {
   font-family: "Lato", sans-serif;
 }
 /** add background image **/
 body{
     background-image: url("images/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  /** responsive background image for mobile view **/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+   
 }
 
 .sidenav {
@@ -50,6 +57,25 @@ body{
   margin-left: 50px;
 }
 
+.main-body {
+  /* center vertically  and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /** fix the font size of text even if the screen size changes **/
+  font-size: 2rem;
+  /** add margin to the left relative to the screen size **/
+  margin-left: 18vw;
+  margin-right: 18vw;
+  /** add top and bottom margin relative to the screen size **/
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+
+
+  
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -59,15 +85,16 @@ body{
 <body>
 
 <div id="mySidenav" class="sidenav">
+  
   <a class="button-deck" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
  <div class="button-deck">
-    <a href="https://www.google.com">Home</a>
+    <a href="">Home</a>
  </div>
 <div class="button-deck">
-    <a href="https://www.facebook.com">Pharmacy</a>
+    <a href="">Pharmacy</a>
 </div>
 <div class="button-deck">
-    <a href="https://www.twitter.com">About</a>
+    <a href="">About</a>
 </div>
 
  
@@ -85,6 +112,11 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-   
+<div class="main-body">
+    <p>
+      PharmaSee is a pharmacy information management system in San Juan, Batangas that provides the necessary pharmaceutical information about certain drugs or medications, such as its description, availability, pricing, and other relevant details that the partnering pharmacy offers. By saving them time, reducing their need for transportation, and other factors, this website is intended to simplify life for San Juaneños when it comes to buying from a local pharmacy.
+
+    </p>
+</div>
 </body>
 </html> 
