@@ -109,6 +109,22 @@
     font-weight: bold;
   }
 
+  .store-tag{
+    border-color: #131212;
+    border-style: solid;
+    
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    padding: 5px 5px;
+    margin-bottom: 4px;
+    width: 60%;
+    /** thick border **/
+    
+    background-color: #f3ff05;
+  }
+
   
  
 
