@@ -11,16 +11,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 /** add background image **/
-body{
-    background-image: url("images/pharma-bg.png");
-  /** responsive background image for mobile view **/
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-
-   
-}
 
 .sidenav {
   height: 100%;
@@ -98,6 +88,9 @@ body{
 }
 
 </style>
+<!-- local css only -->
+<link rel="stylesheet" href="css/card.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
@@ -121,46 +114,82 @@ body{
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 
 
-<div class="main-body">
+<!-- <div class="main-body">
     <div class="search-button">
       <input type="text" placeholder="Searcwkdwskdh.." id="search">   
     </div>
 </div>
 <div class="users">
 
+</div> -->
+<div class="main-search">
+  <div class="search-button">
+    <input type="text" placeholder="Search.." id="search">   
+  </div>
+</div>
+<div class="row">
+  <div class="column">
+    <div class="column">
+      <div class="card">
+        <img class="card-test" src="images/TM/1.png" alt="Cetirizine" style="width:100%">
+      </div>
+    </div>
+    
+
+  
 </div>
 <script>
   /**
-  Cetirizine
-  Azithromycin
-  Glyxambi
-  Biogesic
-  Bioflu
-  Advil Liquid Gel Capsule
-  Diamicron MR
-  Calpol
-  Glucotin
-  **/
-  
+ Cetirizine
+Azithromycin
+Glyxambi
+Biogesic
+Bioflu
+Advil Liquid Gel Capsule
+Diamicron MR
+Calpol
+Glucotin
+Saphormin
+Dolfenal
+Aspilets
+ImmunPro
+Fern-C
+Sleepwell
+Bonamine
+Mefenamic Acid
+Centrum Advance
+Kremil-S Chewable
+**/
   console.log("Hello World");
 
  
     var availableTags = [
-    {name:'Cetirizine', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/1.png'},
-    {name:'Azithromycin', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/2.png'},
-    {name:'Glyxambi', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/3.png'},
-    {name:'Biogesic', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/4.png'},
-    {name:'Bioflu', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/5.png'},
-    {name:'Advil Liquid Gel Capsule', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/6.png'},
-    {name:'Diamicron MR', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/7.png'},
-    {name:'Calpol', 'store':'CM Pharmacy', 'price': 100, 'quantity': 10, 'image':'images/TJ/8.png'},
-
+    {name:"Cetirizine",image:"images/DC/1.png", store:"DC Pharmacy"}, 
+    {name:"Azithromycin",image:"images/DC/2.png", store:"DC Pharmacy"},
+    {name:"Glyxambi",image:"images/DC/3.png", store:"DC Pharmacy"},
+    {name:"Biogesic",image:"images/DC/4.png", store:"DC Pharmacy"},
+    {name:"Bioflu",image:"images/DC/5.png", store:"DC Pharmacy"},
+    {name:"Advil Liquid Gel Capsule",image:"images/DC/6.png", store:"DC Pharmacy"},
+    {name:"Diamicron MR",image:"images/DC/7.png", store:"DC Pharmacy"},
+    {name:"Calpol",image:"images/DC/8.png", store:"DC Pharmacy"},
+    {name:"Glucotin",image:"images/DC/9.png", store:"DC Pharmacy"},
+    {name:"Saphormin",image:"images/DC/10.png", store:"DC Pharmacy"},
+    {name:"Dolfenal",image:"images/DC/11.png", store:"DC Pharmacy"},
+    {name:"Aspilets",image:"images/DC/12.png", store:"DC Pharmacy"},
+    {name:"ImmunPro",image:"images/DC/13.png", store:"DC Pharmacy"},
+    {name:"Fern-C",image:"images/DC/14.png", store:"DC Pharmacy"},
+    {name:"Sleepwell",image:"images/DC/15.png", store:"DC Pharmacy"},
+    {name:"Bonamine",image:"images/DC/16.png", store:"DC Pharmacy"},
+    {name:"Mefenamic Acid",image:"images/DC/17.png", store:"DC Pharmacy"},
+    {name:"Centrum Advance",image:"images/DC/18.png", store:"DC Pharmacy"},
+    {name:"Kremil-S Chewable",image:"images/DC/19.png", store:"DC Pharmacy"},
+    
 
   ];
 
   $(function() {
   $("#search").on("keyup", function() {
-    $(".users").html("");
+    $(".row").html("");
     var val = $.trim(this.value);
     if (val) {
       val = val.toLowerCase();
@@ -169,19 +198,21 @@ body{
         if (obj.name.toLowerCase().indexOf(val) != -1) {
           console.log(obj);
           // crop the image
-          $(".users").append(`<div class="user-card">
-            <div>
-              <img class="image-medicine" 
-              style = "width: 200px; height: 200px; object-fit: cover; border-radius: 50%;"
-              
-              src="${obj.image}" alt="">
-            </div>`);
+          $(".row").append(`
+          <div class="column">
+          <div class="card">
+            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
+          </div>
+            `);
         }
       });
     }
-    $(".not-found").toggle($(".users").find("img").length==0);
+    // $(".not-found").toggle($(".users").find("img").length==0);
+    console.log(`Search: ${val}`);
+    console.log("NO MATCH")
   });
-});x
+});
 
 
   
