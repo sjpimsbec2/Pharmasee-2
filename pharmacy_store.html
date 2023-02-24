@@ -127,14 +127,19 @@ body {
 <div class="row">
   <div class="column">
     <div class="column">
+      <div class="store-tag">
+        MD Pharmacy
+      </div>
       <div class="card">
-        <img class="card-test" src="images/TM/1.png" alt="Cetirizine" style="width:100%">
+        <img class="card-test" src="images/MD/1.png" alt="Cetirizine" style="width:100%">
       </div>
     </div>
     
 
   
 </div>
+<!-- add the medicine js-->
+<script src="medicine.js"></script>
 <script>
   /**
  
@@ -143,40 +148,7 @@ body {
   console.log("Hello World");
 
  
-    var listOfMedicines = [
-    {name:"Cetirizine",image:"images/DC/1.png", store:"DC Pharmacy"}, 
-    {name:"Azithromycin",image:"images/DC/2.png", store:"DC Pharmacy"},
-    {name:"Glyxambi",image:"images/DC/3.png", store:"DC Pharmacy"},
-    {name:"Biogesic",image:"images/DC/4.png", store:"DC Pharmacy"},
-    {name:"Bioflu",image:"images/DC/5.png", store:"DC Pharmacy"},
-    {name:"Advil Liquid Gel Capsule",image:"images/DC/6.png", store:"DC Pharmacy"},
-    {name:"Diamicron MR",image:"images/DC/7.png", store:"DC Pharmacy"},
-    {name:"Calpol",image:"images/DC/8.png", store:"DC Pharmacy"},
-    {name:"Glucotin",image:"images/DC/9.png", store:"DC Pharmacy"},
-    {name:"Saphormin",image:"images/DC/10.png", store:"DC Pharmacy"},
-    {name:"Dolfenal",image:"images/DC/11.png", store:"DC Pharmacy"},
-    {name:"Aspilets",image:"images/DC/12.png", store:"DC Pharmacy"},
-    {name:"ImmunPro",image:"images/DC/13.png", store:"DC Pharmacy"},
-    {name:"Fern-C",image:"images/DC/14.png", store:"DC Pharmacy"},
-    {name:"Sleepwell",image:"images/DC/15.png", store:"DC Pharmacy"},
-    {name:"Bonamine",image:"images/DC/16.png", store:"DC Pharmacy"},
-    {name:"Mefenamic Acid",image:"images/DC/17.png", store:"DC Pharmacy"},
-    {name:"Centrum Advance",image:"images/DC/18.png", store:"DC Pharmacy"},
-    {name:"Kremil-S Chewable",image:"images/DC/19.png", store:"DC Pharmacy"},
-    // TODO: other medicine store is CM Pharmacy
-    {name:"Naproxen", image:"images/CM/1.png", store:"CM Pharmacy"},
-    {name:"Folic Acid", image:"images/CM/2.png", store:"CM Pharmacy"},
-    {name:"Ambroxol", image:"images/CM/3.png", store:"CM Pharmacy"},
-    {name:"Dolfenal", image:"images/CM/4.png", store:"CM Pharmacy"},
-    {name:"Decolgen", image:"images/CM/5.png", store:"CM Pharmacy"},
-    {name:"Alaxan", image:"images/CM/6.png", store:"CM Pharmacy"},
-    {name:"Neurogen", image:"images/CM/7.png", store:"CM Pharmacy"},
-    {name:"Myra-E", image:"images/CM/8.png", store:"CM Pharmacy"},
-    {name:"Centrum Tablet", image:"images/CM/9.png", store:"CM Pharmacy"},
-    {name:"Enervon 50 mg tablet", image:"images/CM/10.png", store:"CM Pharmacy"},
-    // TODO: other medicine store is TM Pharmacy 
-  ];
-
+   
   $(function() {
   $("#search").on("keyup", function() {
     $(".row").html("");
@@ -191,6 +163,9 @@ body {
           $(".row").append(`
           <dv class="column">
           <div class="column">
+            <div class="store-tag">
+      ${obj.store}
+      </div>
           <div class="card">
             <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
           </div>
@@ -210,6 +185,8 @@ body {
   
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
+    // add a class to the body
+    
   }
   
   function closeNav() {
