@@ -21,7 +21,7 @@
   /* Remove extra left and right margins, due to padding */
   /** center the cards **/
   .row{
-    display: flex;
+    
     justify-content: center;
     align-items: center;
   }
@@ -39,7 +39,7 @@
     .column {
       width: 100%;
       display: block;
-      margin-bottom: 20px;
+      
       align-items: center;
       
     }

@@ -140,30 +140,13 @@ body {
 </div>
 <script>
   /**
- Cetirizine
-Azithromycin
-Glyxambi
-Biogesic
-Bioflu
-Advil Liquid Gel Capsule
-Diamicron MR
-Calpol
-Glucotin
-Saphormin
-Dolfenal
-Aspilets
-ImmunPro
-Fern-C
-Sleepwell
-Bonamine
-Mefenamic Acid
-Centrum Advance
-Kremil-S Chewable
+ 
+
 **/
   console.log("Hello World");
 
  
-    var availableTags = [
+    var listOfMedicines = [
     {name:"Cetirizine",image:"images/DC/1.png", store:"DC Pharmacy"}, 
     {name:"Azithromycin",image:"images/DC/2.png", store:"DC Pharmacy"},
     {name:"Glyxambi",image:"images/DC/3.png", store:"DC Pharmacy"},
@@ -183,8 +166,8 @@ Kremil-S Chewable
     {name:"Mefenamic Acid",image:"images/DC/17.png", store:"DC Pharmacy"},
     {name:"Centrum Advance",image:"images/DC/18.png", store:"DC Pharmacy"},
     {name:"Kremil-S Chewable",image:"images/DC/19.png", store:"DC Pharmacy"},
-    
-
+    // TODO: other medicine store is CM Pharmacy
+    {name:"Naproxen", image:"images/CM/1.png", store:"CM Pharmacy"},
   ];
 
   $(function() {
@@ -193,15 +176,17 @@ Kremil-S Chewable
     var val = $.trim(this.value);
     if (val) {
       val = val.toLowerCase();
-      $.each(availableTags, function(_,obj) {
+      $.each(listOfMedicines, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
         if (obj.name.toLowerCase().indexOf(val) != -1) {
           console.log(obj);
           // crop the image
           $(".row").append(`
+          <dv class="column">
           <div class="column">
           <div class="card">
             <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
           </div>
           </div>
             `);
