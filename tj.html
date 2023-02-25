@@ -94,7 +94,7 @@ body {
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
-<body>
+<body onload="onStartAll()">
 
 <div id="mySidenav" class="sidenav">
   
@@ -134,81 +134,7 @@ body {
  
 </div>
 <div class="row">
-    <div class="column">
-      <div class="column">
-        <div   id="cm-p" class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              CM
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Gen. Luna St, Corner Javier St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="dc-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              DC
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Kalayaan St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="lz-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              LZ
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="md-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              MD
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
+    
     <!-- STORE -->
     <div id="tj-p" class="column">
       <div class="column">
@@ -231,16 +157,50 @@ body {
     
   
 <!-- add the medicine js-->
-<script src="medicine.js"></script>
 <script src="pharma.js"></script>
 <script>
   /**
- 
+
 
 **/
-  console.log("Hello World");
+var listOfMedicines = [
+ // TODO: other medicine store is TJ Pharmacy
+ {name:"Biogesic", image:"images/TJ/1.png", store:"TJ Pharmacy"},
+  {name:"PHILRX Philparamine", image:"images/TJ/2.png", store:"TJ Pharmacy"},
+  {name:"NELPA Parasaph Analgesic", image:"images/TJ/3.png", store:"TJ Pharmacy"},
+  {name:"Neozep Forte", image:"images/TJ/4.png", store:"TJ Pharmacy"},
+  {name:"Bioflu", image:"images/TJ/5.png", store:"TJ Pharmacy"},
+  {name:"Ritemed Amoxicillin Capsule", image:"images/TJ/6.png", store:"TJ Pharmacy"},
+  {name:"Diatabs Loperamide Capsule", image:"images/TJ/7.png", store:"TJ Pharmacy"},
+  {name:"RHEA Colchicine Tablet", image:"images/TJ/8.png", store:"TJ Pharmacy"},
+  {name:"FLANAX Naproxen Sodium Tablet", image:"images/TJ/9.png", store:"TJ Pharmacy"},
+  {name:"Rexidol Forte Paracetamol Caffeine Tablet", image:"images/TJ/10.png", store:"TJ Pharmacy"},
+  
 
- 
+];
+// display the medicine
+
+
+  function onStartAll(){
+    $(".row").html("");
+    for(var i = 0; i < listOfMedicines.length; i++){
+      var obj = listOfMedicines[i];
+      // crop the image
+      $(".row").append(`
+          <dv class="column">
+          <div class="column">
+            <div class="store-tag">
+      ${obj.store}
+      </div>
+          <div class="card">
+            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
+          </div>
+          </div>`);
+    }
+    
+    }
+      
    
   $(function() {
   $("#search").on("keyup", function() {
