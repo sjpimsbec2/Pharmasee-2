@@ -1,3 +1,31 @@
+body{
+    /**bacground image fixed cover **/
+    background-image: url("/images/bg.png");
+    /** responsive background image for mobile view **/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    /** display as flex **/
+}
+
+.header{
+    /** align items to center **/
+    display: inline-block;
+	
+    object-fit: fit;
+	width: 100%;
+	vertical-align: middle; 
+	overflow: hidden; 
+    height: 0% ;
+
+  
+    
+}
+
+
+
+
 .search-button{
     /** rounded corners **/
     border-radius: 30px;
@@ -22,6 +50,28 @@
     display: flex;
     
 }
+
+.container-head{
+    position: static;
+      /** make it sticky and fix it to the top **/
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    /** background color **/
+
+}
+#button-snap{
+    position: absolute;
+   top: 2.5rem;
+   color: white;
+   left: 10px; 
+   
+    
+   padding: 5px;
+   
+
+}
+
 .search-button input {
     /** rounded corners **/
     border-radius: 5px;
@@ -57,3 +107,4 @@
 
     
 }
+
