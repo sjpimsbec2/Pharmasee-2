@@ -1,0 +1,110 @@
+body{
+    /**bacground image fixed cover **/
+    background-image: url("/images/bg.png");
+    /** responsive background image for mobile view **/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    /** display as flex **/
+}
+
+.header{
+    /** align items to center **/
+    display: inline-block;
+	
+    object-fit: fit;
+	width: 100%;
+	vertical-align: middle; 
+	overflow: hidden; 
+    height: 0% ;
+
+  
+    
+}
+
+
+
+
+.search-button{
+    /** rounded corners **/
+    border-radius: 30px;
+   
+    align-items: center;
+    width: 60%;
+    flex-direction: row;
+    display: flex;
+    justify-content:space-between;
+    background-color: #ECEFEB;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+.row-search{
+    /** align items to center **/
+    align-items: center;
+    /** width **/
+    flex-direction: row;
+    /** display as flex **/
+    display: flex;
+    
+}
+
+.container-head{
+    position: static;
+      /** make it sticky and fix it to the top **/
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    /** background color **/
+
+}
+#button-snap{
+    position: absolute;
+   top: 2.5rem;
+   color: white;
+   left: 10px; 
+   
+    
+   padding: 5px;
+   
+
+}
+
+.search-button input {
+    /** rounded corners **/
+    border-radius: 5px;
+
+    /** padding **/
+   padding-left: 30px;
+    /** background color **/
+    background-color: #ECEFEB;
+
+    /** no border **/
+    border: none;
+    width: 100%;
+    /**remove outline **/
+    outline: none;
+
+}
+.search-icon{
+    /** circular **/
+    border-radius: 100%;
+    /** padding **/
+    border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /* font-size: 16px;
+  margin: 4px 2px; */
+  cursor: pointer;
+  background-color: #6D1F1A;
+  border-color: #ECEFEB;
+  border-width: 30px;
+
+    
+}
+

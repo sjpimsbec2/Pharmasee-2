@@ -94,23 +94,21 @@ body {
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
-<body >
+<body onload="onStartAll()">
 
-<div  id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav">
   
   <a class="button-deck" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
  <div class="button-deck">
     <a href="">Home</a>
  </div>
 <div class="button-deck">
-    <a href="">Pharmacy</a>
+    <a href="pharmacy_store.html">Pharmacy</a>
 </div>
 <div class="button-deck">
     <a href="">About</a>
 </div>
 </div>
-
-
 
 <!-- <div class="main-body">
     <div class="search-button">
@@ -124,8 +122,7 @@ body {
   <span id="button-snap" style="font-size:2rem;cursor:pointer" onclick="openNav()" >&#9776;</span>
 <img class="header" src="images/header.svg">
 </div>
-<div class="main-body-search">
-<div  class="main-search">
+<div class="main-search">
   <div class="row-search">
     <div class="search-button">
       <input type="text" placeholder="Search.." id="search" width="50%"> 
@@ -137,81 +134,7 @@ body {
  
 </div>
 <div class="row">
-    <div class="column">
-      <div class="column">
-        <div   id="cm-p" class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              CM
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Gen. Luna St, Corner Javier St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="dc-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              DC
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Kalayaan St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="lz-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              LZ
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="md-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              MD
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
+    
     <!-- STORE -->
     <div id="tj-p" class="column">
       <div class="column">
@@ -231,20 +154,54 @@ body {
         </div>
       </div>
     </div>
-  </div>
     
   
 <!-- add the medicine js-->
-<script src="medicine.js"></script>
 <script src="pharma.js"></script>
 <script>
   /**
- 
+
 
 **/
-  console.log("Hello World");
+var listOfMedicines = [
+  // TODO: other medicine store is MD Pharmacy
+  {name:"Cozaar Losartan Potassium Tablet", image:"images/MD/1.png", store:"MD Pharmacy"},
+  {name:"Trivastal Retard", image:"images/MD/2.png", store:"MD Pharmacy"},
+  {name:'Setralinehydrochloride',  image:"images/MD/3.png", store:"MD Pharmacy"},
+  {name: 'Carbidopa-Levodopa',  image:"images/MD/4.png", store:"MD Pharmacy"},
+  {name: 'Clozapine',  image:"images/MD/5.png", store:"MD Pharmacy"},
+  {name: 'Mirtazapine tablet',  image:"images/MD/6.png", store:"MD Pharmacy"},
+  {name: 'Tazocin Piperacillin',  image:"images/MD/7.png", store:"MD Pharmacy"},
+  {name: 'Vortioxetine tablet film coated tablet',  image:"images/MD/8.png", store:"MD Pharmacy"},
+  {name: 'Isotretinoin',  image:"images/MD/9.png", store:"MD Pharmacy"},
+  {name: 'Ropinirole',  image:"images/MD/10.png", store:"MD Pharmacy"},
+  
 
- 
+
+];
+// display the medicine
+
+
+  function onStartAll(){
+    $(".row").html("");
+    for(var i = 0; i < listOfMedicines.length; i++){
+      var obj = listOfMedicines[i];
+      // crop the image
+      $(".row").append(`
+          <dv class="column">
+          <div class="column">
+            <div class="store-tag">
+      ${obj.store}
+      </div>
+          <div class="card">
+            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
+          </div>
+          </div>`);
+    }
+    
+    }
+      
    
   $(function() {
   $("#search").on("keyup", function() {
@@ -275,32 +232,6 @@ body {
     // $(".not-found").toggle($(".users").find("img").length==0);
     console.log(`Search: ${val}`);
     console.log("NO MATCH")
-    if(!(val.trim().length==0)){
-      $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            <div class="no-item">
-              There is no available ${val} in this pharmacy/pharmacies
-      </div>
-          
-          </div>
-          </div>
-            `);
-    
-
-    }
-    else{
-      $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            <div class="no-item">
-              Just type the medicine you want to search or go to the <a href="pharmacy_store.html">Pharmacy</a> page to see the list of available medicines.
-      </div>
-          
-          </div>
-          </div>
-            `);
-    }
   });
 });
 

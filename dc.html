@@ -94,21 +94,22 @@ body {
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
-<body >
+<body onload="onStartAll()">
 
-<div  id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav">
   
   <a class="button-deck" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
  <div class="button-deck">
     <a href="">Home</a>
  </div>
 <div class="button-deck">
-    <a href="">Pharmacy</a>
+    <a href="pharmacy_store.html">Pharmacy</a>
 </div>
 <div class="button-deck">
     <a href="">About</a>
 </div>
 </div>
+
 
 
 
@@ -124,8 +125,7 @@ body {
   <span id="button-snap" style="font-size:2rem;cursor:pointer" onclick="openNav()" >&#9776;</span>
 <img class="header" src="images/header.svg">
 </div>
-<div class="main-body-search">
-<div  class="main-search">
+<div class="main-search">
   <div class="row-search">
     <div class="search-button">
       <input type="text" placeholder="Search.." id="search" width="50%"> 
@@ -137,81 +137,7 @@ body {
  
 </div>
 <div class="row">
-    <div class="column">
-      <div class="column">
-        <div   id="cm-p" class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              CM
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Gen. Luna St, Corner Javier St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="dc-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              DC
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Kalayaan St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="lz-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              LZ
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div id="md-p" class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div class="name-sub">
-              MD
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
+    
     <!-- STORE -->
     <div id="tj-p" class="column">
       <div class="column">
@@ -231,20 +157,61 @@ body {
         </div>
       </div>
     </div>
-  </div>
     
   
 <!-- add the medicine js-->
-<script src="medicine.js"></script>
 <script src="pharma.js"></script>
 <script>
   /**
- 
+
 
 **/
-  console.log("Hello World");
-
+var listOfMedicines = [
+      // TODO: other medicine store is CM Pharmacy
+      {name:"Cetirizine",image:"images/DC/1.png", store:"DC Pharmacy"}, 
+  {name:"Azithromycin",image:"images/DC/2.png", store:"DC Pharmacy"},
+  {name:"Glyxambi",image:"images/DC/3.png", store:"DC Pharmacy"},
+  {name:"Biogesic",image:"images/DC/4.png", store:"DC Pharmacy"},
+  {name:"Bioflu",image:"images/DC/5.png", store:"DC Pharmacy"},
+  {name:"Advil Liquid Gel Capsule",image:"images/DC/6.png", store:"DC Pharmacy"},
+  {name:"Diamicron MR",image:"images/DC/7.png", store:"DC Pharmacy"},
+  {name:"Calpol",image:"images/DC/8.png", store:"DC Pharmacy"},
+  {name:"Glucotin",image:"images/DC/9.png", store:"DC Pharmacy"},
+  {name:"Saphormin",image:"images/DC/10.png", store:"DC Pharmacy"},
+  {name:"Dolfenal",image:"images/DC/11.png", store:"DC Pharmacy"},
+  {name:"Aspilets",image:"images/DC/12.png", store:"DC Pharmacy"},
+  {name:"ImmunPro",image:"images/DC/13.png", store:"DC Pharmacy"},
+  {name:"Fern-C",image:"images/DC/14.png", store:"DC Pharmacy"},
+  {name:"Sleepwell",image:"images/DC/15.png", store:"DC Pharmacy"},
+  {name:"Bonamine",image:"images/DC/16.png", store:"DC Pharmacy"},
+  {name:"Mefenamic Acid",image:"images/DC/17.png", store:"DC Pharmacy"},
+  {name:"Centrum Advance",image:"images/DC/18.png", store:"DC Pharmacy"},
+  {name:"Kremil-S Chewable",image:"images/DC/19.png", store:"DC Pharmacy"},
  
+];
+// display the medicine
+
+
+  function onStartAll(){
+    $(".row").html("");
+    for(var i = 0; i < listOfMedicines.length; i++){
+      var obj = listOfMedicines[i];
+      // crop the image
+      $(".row").append(`
+          <dv class="column">
+          <div class="column">
+            <div class="store-tag">
+      ${obj.store}
+      </div>
+          <div class="card">
+            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
+          </div>
+          </div>`);
+    }
+    
+    }
+      
    
   $(function() {
   $("#search").on("keyup", function() {
@@ -275,32 +242,6 @@ body {
     // $(".not-found").toggle($(".users").find("img").length==0);
     console.log(`Search: ${val}`);
     console.log("NO MATCH")
-    if(!(val.trim().length==0)){
-      $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            <div class="no-item">
-              There is no available ${val} in this pharmacy/pharmacies
-      </div>
-          
-          </div>
-          </div>
-            `);
-    
-
-    }
-    else{
-      $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            <div class="no-item">
-              Just type the medicine you want to search or go to the <a href="pharmacy_store.html">Pharmacy</a> page to see the list of available medicines.
-      </div>
-          
-          </div>
-          </div>
-            `);
-    }
   });
 });
 
