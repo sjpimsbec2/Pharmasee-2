@@ -2,42 +2,227 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
+<style>
+
+body {
+  font-family: "Lato", sans-serif;
+}
+/** add background image **/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #FFF0A1;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #131212;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .button-deck:hover {
+  background-color: #ac807d;  
+
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.main-body {
+  /* center vertically  and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  /** fix the font size of text even if the screen size changes **/
+  font-size: 2rem;
+  /** add margin to the left relative to the screen size **/
+  margin-left: 18vw;
+  margin-right: 18vw;
+  /** add top and bottom margin relative to the screen size **/
+  margin-top: 50vh;
+  margin-bottom: 5vh;
+  border-color: white;
+  border-style: solid;
+
+}
+.card-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  /** fix the font size of text even if the screen size changes **/
+  font-size: 2rem;
+  /** add margin to the left relative to the screen size **/
+  margin-left: 18vw;
+  margin-right: 18vw;
+  /** add top and bottom margin relative to the screen size **/
+  margin-top: 50vh;
+  margin-bottom: 5vh;
+  border-color: white;
+  border-style: solid;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+</style>
+<!-- local css only -->
+<link rel="stylesheet" href="css/card.css">
+<link rel="stylesheet" href="css/search.css">
+<!-- font awesome-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
-<body>
+<body onload="onStartAll()">
 
 <div id="mySidenav" class="sidenav">
   
   <a class="button-deck" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
  <div class="button-deck">
-    <a href="">Home</a>
+    <a href="index.html">Home</a>
  </div>
 <div class="button-deck">
     <a href="pharmacy_store.html">Pharmacy</a>
 </div>
 <div class="button-deck">
-    <a href="">About</a>
+    <a href="about.html">About</a>
+</div>
 </div>
 
+
+
+<!-- <div class="main-body">
+    <div class="search-button">
+      <input type="text" placeholder="Searcwkdwskdh.." id="search">   
+    </div>
+</div>
+<div class="users">
+
+</div> -->
+<div id="container-head">
+  <span id="button-snap" style="font-size:2rem;cursor:pointer" onclick="openNav()" >&#9776;</span>
+<img class="header" src="images/1.svg">
+</div>
+<div class="main-search">
+  <img src="images/home-bg.svg" class="about-page">
  
 </div>
 
-
-
+    
+    
+  
+<!-- add the medicine js-->
+<script src="pharma.js"></script>
 <script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
+  /**
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-<div class="main-body">
-    <p>
-      PharmaSee is a pharmacy information management system in San Juan, Batangas that provides the necessary pharmaceutical information about certain drugs or medications, such as its description, availability, pricing, and other relevant details that the partnering pharmacy offers. By saving them time, reducing their need for transportation, and other factors, this website is intended to simplify life for San Juaneños when it comes to buying from a local pharmacy.
 
-    </p>
-</div>
+**/
+var listOfMedicines = [
+      // TODO: other medicine store is CM Pharmacy
+      {name:'Naproxen',  image:"images/LZ/1.png", store:"LZ Pharmacy"},
+  {name:'Folic Acid tablet',  image:"images/LZ/2.png", store:"LZ Pharmacy"},
+  {name:'Ambroxol',  image:"images/LZ/3.png", store:"LZ Pharmacy"},
+  {name:'Dolfenal',  image:"images/LZ/4.png", store:"LZ Pharmacy"},
+  {name:'Decolgen',  image:"images/LZ/5.png", store:"LZ Pharmacy"},
+  {name:'Alaxan',  image:"images/LZ/6.png", store:"LZ Pharmacy"},
+  {name:'Neurogen E',  image:"images/LZ/7.png", store:"LZ Pharmacy"},
+  {name:'Myra-E',  image:"images/LZ/8.png", store:"LZ Pharmacy"},
+  {name:'Centrum Tablet',  image:"images/LZ/9.png", store:"LZ Pharmacy"},
+  {name:'Enervon (Adult)',  image:"images/LZ/10.png", store:"LZ Pharmacy"},
+  {name:'Stresstab',  image:"images/LZ/11.png", store:"LZ Pharmacy"},
+
+
+
+];
+// display the medicine
+
+
+  function onStartAll(){
+    $(".row").html("");
+    for(var i = 0; i < listOfMedicines.length; i++){
+      var obj = listOfMedicines[i];
+      // crop the image
+      $(".row").append(`
+          <dv class="column">
+          <div class="column">
+            <div class="store-tag">
+      ${obj.store}
+      </div>
+          <div class="card">
+            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
+          </div>
+          </div>`);
+    }
+    
+    }
+      
+   
+  $(function() {
+  $("#search").on("keyup", function() {
+    $(".row").html("");
+    var val = $.trim(this.value);
+    if (val) {
+      val = val.toLowerCase();
+      $.each(listOfMedicines, function(_,obj) {
+       // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
+        if (obj.name.toLowerCase().indexOf(val) != -1) {
+          console.log(obj);
+          // crop the image
+          $(".row").append(`
+          <dv class="column">
+          <div class="column">
+            <div class="store-tag">
+      ${obj.store}
+      </div>
+          <div class="card">
+            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
+          </div>
+          </div>
+            `);
+        }
+      });
+    }
+    // $(".not-found").toggle($(".users").find("img").length==0);
+    console.log(`Search: ${val}`);
+    console.log("NO MATCH")
+  });
+});
+
+
+  
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    // add a class to the body
+    
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
 </body>
 </html> 
