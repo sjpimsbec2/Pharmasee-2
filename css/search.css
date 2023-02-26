@@ -1,6 +1,6 @@
 body{
     /**bacground image fixed cover **/
-    background-image: url("/images/bg.png");
+    background-image: url("../images/bg.png");
     /** responsive background image for mobile view **/
     background-size: cover;
     background-repeat: no-repeat;
