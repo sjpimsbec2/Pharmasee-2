@@ -23,6 +23,17 @@ body{
     
 }
 
+.about-page{
+  /** align items to center **/
+  display: inline-block;
+	
+  object-fit: fit;
+  width: 100%;
+  vertical-align: middle; 
+  overflow: hidden; 
+  height: 0% ;   
+}
+
 
 
 
