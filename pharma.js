@@ -34,4 +34,12 @@ document.getElementById('tj-p').addEventListener('click', function() {
 });
 
 
+// dl-p is the id of the button
+document.getElementById('dl-p').addEventListener('click', function() {
+    // go to dl.html
+    window.location.href = 'dl.html';
+
+}
+);
+
 

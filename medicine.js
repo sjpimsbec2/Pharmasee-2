@@ -65,6 +65,24 @@ var listOfMedicines = [
   {name:'Enervon (Adult)',  image:"images/LZ/10.png", store:"LZ Pharmacy"},
   {name:'Stresstab',  image:"images/LZ/11.png", store:"LZ Pharmacy"},
 
+  // DL Pharmacy
+  {name:'Cetirizine',  image:"images/DL/1.png", store:"DL Pharmacy"},
+  {name:'Azithromycin',  image:"images/DL/2.png", store:"DL Pharmacy"},
+  {name:'Glyxambi',  image:"images/DL/3.png", store:"DL Pharmacy"},
+  {name:'Biogesic',  image:"images/DL/4.png", store:"DL Pharmacy"},
+  {name: 'Bioflu',  image:"images/DL/5.png", store:"DL Pharmacy"},
+  {name:'Advil',  image:"images/DL/6.png", store:"DL Pharmacy"},
+  {name:'Diomicron',  image:"images/DL/7.png", store:"DL Pharmacy"},
+  {name:'Calpol',  image:"images/DL/8.png", store:"DL Pharmacy"},
+{name:'Glucotine',  image:"images/DL/9.png", store:"DL Pharmacy"},
+{name:'Saphormin',  image:"images/DL/10.png", store:"DL Pharmacy"},
+
+
+
+
+
+
+
 
 
 
