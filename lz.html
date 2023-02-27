@@ -206,22 +206,25 @@ var listOfMedicines = [
     }
       
    
-  $(function() {
+    $(function() {
   $("#search").on("keyup", function() {
     $(".row").html("");
     var val = $.trim(this.value);
+    var isContainData = false;
+    var medicineSearch = [];
     if (val) {
       val = val.toLowerCase();
       $.each(listOfMedicines, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
         if (obj.name.toLowerCase().indexOf(val) != -1) {
+          medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
           $(".row").append(`
           <dv class="column">
           <div class="column">
             <div class="store-tag">
-      ${obj.store}
+              ${obj.store}
       </div>
           <div class="card">
             <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
@@ -229,12 +232,30 @@ var listOfMedicines = [
           </div>
           </div>
             `);
+          isContainData = true;
         }
-      });
+        else{
+          isContainData = false;
+
+        }
+
+      }
+      );
     }
-    // $(".not-found").toggle($(".users").find("img").length==0);
-    console.log(`Search: ${val}`);
-    console.log("NO MATCH")
+    if(medicineSearch.length == 0){
+      $(".row").append(`
+      
+          <div class="column">
+          <div class="column">
+            <div class="no-item">
+              There is no available ${val} in this pharmacy/pharmacies
+      </div>
+          
+          </div>
+          </div>
+            
+        `);
+    }
   });
 });
 

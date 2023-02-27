@@ -269,18 +269,21 @@ body {
   $("#search").on("keyup", function() {
     $(".row").html("");
     var val = $.trim(this.value);
+    var isContainData = false;
+    var medicineSearch = [];
     if (val) {
       val = val.toLowerCase();
       $.each(listOfMedicines, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
         if (obj.name.toLowerCase().indexOf(val) != -1) {
+          medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
           $(".row").append(`
           <dv class="column">
           <div class="column">
             <div class="store-tag">
-      ${obj.store}
+              ${obj.store}
       </div>
           <div class="card">
             <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
@@ -288,14 +291,19 @@ body {
           </div>
           </div>
             `);
+          isContainData = true;
         }
-      });
+        else{
+          isContainData = false;
+
+        }
+
+      }
+      );
     }
-    // $(".not-found").toggle($(".users").find("img").length==0);
-    console.log(`Search: ${val}`);
-    console.log("NO MATCH")
-    if(!(val.trim().length==0)){
+    if(medicineSearch.length == 0){
       $(".row").append(`
+      
           <div class="column">
           <div class="column">
             <div class="no-item">
@@ -304,21 +312,8 @@ body {
           
           </div>
           </div>
-            `);
-    
-
-    }
-    else{
-      $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            <div class="no-item">
-              Just type the medicine you want to search or go to the <a href="pharmacy_store.html">Pharmacy</a> page to see the list of available medicines.
-      </div>
-          
-          </div>
-          </div>
-            `);
+            
+        `);
     }
   });
 });
