@@ -54,11 +54,11 @@ body{
 }
 .row-search{
     /** align items to center **/
-    align-items: center;
-    /** width **/
-    flex-direction: row;
-    /** display as flex **/
     display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
     
 }
 
