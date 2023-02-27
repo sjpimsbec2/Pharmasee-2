@@ -68,64 +68,19 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    background-color: #ECEFEB;
-    color: #6D1F1A;
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     text-align: center;
-    padding: 0 1rem;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    color: #6D1F1A;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    padding: 0 1rem;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    color: #6D1F1A;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    padding: 0 1rem;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    color: #6D1F1A;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    padding: 0 1rem;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    color: #6D1F1A;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    padding: 0 1rem;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    color: #6D1F1A;
-    text-transform: uppercase;
+    padding: 10px;
+    background-color:#ECEFEB;
+    opacity: 0.8;
+    font-weight: bold;
+   
   
+}
+.row-x{
+    /** align items to center **/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-head{
