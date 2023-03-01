@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.img-responsive{
+    /** crop square center **/
+    object-fit: cover;
+    /** make image responsive **/
+    width: 60%;
+    height: 60%;
+    /** let the image be centered **/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    
+}
+.data-here{
+    /** left justify **/
+    text-align: left;
+    /** add margin to the left relative to the screen size **/
+    margin-left: 18vw;
+    margin-right: 18vw;
+    /** make the items left justified **/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+
+}
+img{
+    object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+    width: 100%;
+    height: 100%;
+}
+</style>
+</head>
+<body>
+
+<h2>Modal Example</h2>
+
+<!-- Trigger/Open The Modal -->
+<button onclick="hopethis('Hi')">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal Azithromycin">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="medicineName"></div>
+    <div class="data-here">
+        <!-- add data-->
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+ function hopethis(name) {
+
+  modal.style.display = "block";
+  // get modal class but not the first one
+    var modalClass = modal.classList[1] + "   --- " + name;
+    
+  // add data
+    var data = document.getElementsByClassName("data-here")[0];
+    console.log(document.getElementsByClassName("data-here"));
+    console.log(data);
+    // get the second class
+    var secondClass = data.classList[0];
+
+    // add data in medicineClass
+    var medicineName = document.getElementsByClassName("medicineName")[0];
+    medicineName.innerHTML = modalClass;
+    
+    
+    // add image
+    var img = document.createElement("img");
+    // add class
+    img.classList.add("img-responsive");
+    img.src = "images/DC/2.png";
+    data.appendChild(img);
+    // add description  
+    var description = document.createElement("p");
+    description.innerHTML = "Azithromycin is a macrolide antibiotic used to treat bacterial infections. It may be used for chlamydia infections, strep throat, pneumonia, traveler's diarrhea, and certain other intestinal infections. It may also be used for Lyme disease, ear infections, or to prevent mycobacterium avium complex infection. It is taken by mouth.";
+    data.appendChild(description);
+    // add what kind of drug it is
+    var drugType = document.createElement("p");
+    drugType.innerHTML = "Antibiotic";
+    data.appendChild(drugType);
+    // add what kind of drug it is
+    
+
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

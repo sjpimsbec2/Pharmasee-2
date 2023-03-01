@@ -84,6 +84,81 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+ 
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ECEDDA;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* rounded corners */
+  border-radius: 40px;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.img-responsive{
+    /** crop square center **/
+    object-fit: cover;
+    /** make image responsive **/
+    width: 60%;
+    height: 60%;
+    /** let the image be centered **/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    
+}
+.data-here{
+    /** left justify **/
+    text-align: left;
+    /** add margin to the left relative to the screen size **/
+    margin-left: 18vw;
+    margin-right: 18vw;
+    /** make the items left justified **/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+
+}
+
+
 </style>
 <!-- local css only -->
 <link rel="stylesheet" href="css/card.css">
@@ -251,18 +326,26 @@ body {
       </div>
     </div>
   </div>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="medicineName"></div>
+      <div class="data-here">
+          <!-- add data-->
+      </div>
+    </div>
+  
+  </div>
+
     
   
 <!-- add the medicine js-->
 <script src="medicine.js"></script>
 <script src="pharma.js"></script>
 <script>
-  /**
- 
-
-**/
-  console.log("Hello World");
-
  
    
   $(function() {
@@ -285,8 +368,8 @@ body {
             <div class="store-tag">
               ${obj.store}
       </div>
-          <div class="card">
-            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          <div class="card ${obj.name}">
+            <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
           </div>
           </div>
           </div>
@@ -331,6 +414,71 @@ body {
   
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+  }
+  ////// ===== modal ====== /////
+  var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+  function openModalPls(medicineNameKey){
+   console.log(medicineNameKey);
+
+   modal.style.display = "block";
+  // get modal class but not the first one
+    var modalClass = modal.classList[1] + " --- " + name;
+    
+  // add data
+    var data = document.getElementsByClassName("data-here")[0];
+    console.log(document.getElementsByClassName("data-here"));
+    console.log(data);
+    // get the second class
+    var secondClass = data.classList[0];
+
+    // add data in medicineClass
+    var medicineName = document.getElementsByClassName("medicineName")[0];
+    medicineName.innerHTML = "Type: " + medicineNameKey;
+    
+    
+    // add image
+    var img = document.createElement("img");
+    // add class
+    img.classList.add("img-responsive");
+    img.src = "images/DC/2.png";
+    data.appendChild(img);
+    
+    // add description
+    var description = document.createElement("p");
+    description.innerHTML = getTheDescription(medicineNameKey);
+    console.log("TEST: "+getTheDescription(medicineNameKey))
+    data.appendChild(description);
+    // add what kind of drug it i
+    
+    // add what kind of drug it is
+
+
+  }
+  function getTheDescription(medicineNameKey){
+  description = "";
+
+  console.log(`MEDICINE NAME KEY: ${medicineNameKey}`);
+  // find the index of the medicine
+  var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
+  console.log(`INDEX: ${index}`);
+  // get the description
+  description = listOfMedicines[index].description;
+  console.log(`DESCRIPTION: ${description}`);
+  return description;
+  }
+
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
   </script>
 </body>
