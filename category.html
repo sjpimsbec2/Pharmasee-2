@@ -200,7 +200,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
-<body >
+<body onload="loadData()">
 
 <div  id="mySidenav" class="sidenav">
   
@@ -212,7 +212,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <a href="">Pharmacy</a>
 </div>
 <div class="button-deck">
-  <a href="pharmacy_store.html">Pharmacy</a>
+    <a href="pharmacy_store.html">Pharmacy</a>
 </div>
 <div class="button-deck">
     <a href="about.html">About</a>
@@ -238,14 +238,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="row-search">
     <!-- back button-->
     <div class="back-button">
-      <a href="pharmacy_store.html"><i  style="color:white; font-size: x-large;" class="fa fa-arrow-left"></i></a>
+      <a href="category.html"><i  style="color:white; font-size: x-large;" class="fa fa-arrow-left"></i></a>
 
     </div>
     <!--- spaces-->
     <div class="space" style="width: 20px;">
     </div>
     <div class="search-button">
-      <input type="text" placeholder="Search.." id="search" width="50%"> 
+      <input type="text" placeholder="Search Categories only..." id="search" width="50%"> 
       <!-- icon search--> 
       <button class="search-icon" type="submit"><i class="fa fa-search"></i></button> 
     
@@ -262,100 +262,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 </div>
 <div class="row">
-    <div class="column">
-      <div class="column">
-        <div class="card-store" onclick="filterByStore('CM Pharmacy')">
-          <div class="store-name">
-            <div class="name-sub">
-              CM
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Gen. Luna St, Corner Javier St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div class="column">
-      <div class="column">
-        <div class="card-store" onclick="filterByStore('DC Pharmacy')">
-          <div class="store-name">
-            <div class="name-sub">
-              DC
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Kalayaan St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div class="column">
-      <div class="column">
-        <div class="card-store" onclick="filterByStore('DL Pharmacy')">
-          <div class="store-name">
-            <div class="name-sub">
-              DL
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Kalayaan St, San Juan
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div class="column">
-      <div class="column">
-        <div class="card-store" onclick="filterByStore('LZ Pharmacy')">
-          <div class="store-name">
-            <div class="name-sub">
-              LZ
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- STORE -->
-    <div  class="column">
-      <div class="column">
-        <div class="card-store">
-          <div class="store-name">
-            <div onclick="filterByStore('MD Pharmacy')" class="name-sub">
-              MD
-            </div>
-            <div class="name-sub">
-              Pharmacy
-            </div>
-            <div class="location-store">
-              Marasigan St, San Juan
-                        </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
+    
     <!-- STORE -->
     <div  class="column">
       <div class="column">
@@ -396,6 +303,71 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script src="medicine.js"></script>
 <script src="pharma.js"></script>
 <script>
+
+listOfCategories = [
+    {name:"Antihistamines", image:"images/CATEGORY/1.png"},
+    {name:"Antibacterials", image:"images/CATEGORY/2.png"},
+    {name:"Antidiabetics", image:"images/CATEGORY/3.png"},
+    {name:"Vitamins", image:"images/CATEGORY/4.png"},
+    {name:"Analgesics", image:"images/CATEGORY/5.png"},
+    {name:"Antipyretics", image:"images/CATEGORY/6.png"},
+    {name:"Oral hypoglycemics", image:"images/CATEGORY/7.png"},
+    {name:"Non-steroidal anti-inflammatory drugs", image:"images/CATEGORY/8.png"},
+    {name:"Antithrombotics", image:"images/CATEGORY/9.png"},
+    {name:"Food supplements", image:"images/CATEGORY/10.png"},
+    {name:"Multivitamins", image:"images/CATEGORY/11.png"},
+    {name:"Anti-emetics", image:"images/CATEGORY/12.png"},
+    {name:"Anti-vertigo", image:"images/CATEGORY/13.png"},
+    {name:"Antacids", image:"images/CATEGORY/14.png"},
+    {name:"Antiflatulent", image:"images/CATEGORY/14.png"},
+    {name:"Anti-motility", image:"images/CATEGORY/15.png"},
+    {name:"Anti-gouts", image:"images/CATEGORY/16.png"},
+    {name:"Antitusives", image:"images/CATEGORY/17.png"},
+    {name:"Expectorants", image:"images/CATEGORY/17.png"},
+    {name:"Mucolytics", image:"images/CATEGORY/18.png"},
+    {name:"Anti-cough", image:"images/CATEGORY/19.png"},
+    {name:"Anti-asthma", image:"images/CATEGORY/20.png"},
+    {name:"Cough-remedy", image:"images/CATEGORY/22.png"},
+    {name:"Anti-angina", image:"images/CATEGORY/23.png"},
+    {name:"Antihypertensives", image:"images/CATEGORY/24.png"},
+    {name:"Lipid Modifying Agents", image:"images/CATEGORY/25.png"},
+{name:"Calcium Channel Blockers", image:"images/CATEGORY/26.png"},
+{name:"Beta Adrenoceptor Blockers", image:"images/CATEGORY/27.png"},
+{name:"Angiotensin", image:"images/CATEGORY/28.png"},
+{name:"Dopamine receptor agnoists", image:"images/CATEGORY/29.png"},
+{name:"Antidepressants", image:"images/CATEGORY/30.png"},
+{name:"Antiparkinsonism", image:"images/CATEGORY/31.png"},
+
+{name:"Antbiotics", image:"images/CATEGORY/32.png"},
+{name:"Antipsychotics", image:"images/CATEGORY/33.png"},
+{name:"Antirhythmics", image:"images/CATEGORY/34.png"},
+{name:"Bispheosphonates", image:"images/CATEGORY/34.png"},
+{name:"Cold Sores", image:"images/CATEGORY/36.png"},
+{name:"Inhalation Solution", image:"images/CATEGORY/37.png"},
+{name:"Andergenic Blocking Agents", image:"images/CATEGORY/38.png"},
+{name:"Eyedrops", image:"images/CATEGORY/39.png"},
+
+
+
+
+];
+function loadData(){
+    $(".row").html("");
+    for(var i = 0; i < listOfCategories.length; i++){
+      var obj = listOfCategories[i];
+      // crop the image
+      $(".row").append(`
+          <dv class="column">
+          <div class="column">
+            
+          <div class="card-category" onclick="filterTheMedicine('${obj.name}')">
+            <img class="card-test-category" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          </div>
+          </div>
+          </div>`);
+    }
+    
+    }
  
    
   $(function() {
@@ -406,21 +378,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
     var medicineSearch = [];
     if (val) {
       val = val.toLowerCase();
-      $.each(listOfMedicines, function(_,obj) {
+      $.each(listOfCategories, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
        // include the store name
-       if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1) {
+       if (obj.name.toLowerCase().indexOf(val) != -1) {
           medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
           $(".row").append(`
           <dv class="column">
           <div class="column">
-            <div class="store-tag" onclick="filterByStore('${obj.store}')">
-              ${obj.store}
-      </div>
-          <div class="card ${obj.name}">
-            <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+           
+          <div class="card-category">
+            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%" onclick="filterTheMedicine('${obj.name}')">
           </div>
           </div>
           </div>
@@ -509,11 +479,7 @@ Stock: __ **/
     var img = document.createElement("img");
     // add class
     img.classList.add("img-responsive");
-    // get the image
-    img.src = getTheImage(medicineNameKey);
-    // add the image
-
-   
+    img.src = "images/DC/2.png";
     data.appendChild(img);
     
       // add category
@@ -556,14 +522,6 @@ Stock: __ **/
 
   }
 
-  function getTheImage(medicineNameKey){
-    // find the index of the medicine
-    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
-    // get the image
-    nameOfMedicine = listOfMedicines[index].name;
-    image = listOfMedicines[index].image;
-    return image;
-  }
   
 
   function getTheDescription(medicineNameKey){
