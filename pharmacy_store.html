@@ -4,6 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("FONTS/glacial-indifference/GlacialIndifference-Regular.otf");
+  src:url("FONTS/glacial-indifference/GlacialIndifference-Regular.otf") format("opentype"),
+        url("FONTS/glacial-indifference/GlacialIndifference-Bold.otf") format("opentype");
+       
+
+}
+@font-face {
+  font-family: "GlacialIndifferenceBold";
+  src: url("FONTS/glacial-indifference/GlacialIndifference-Bold.otf");
+}
 body {
   font-family: "Lato", sans-serif;
 }
@@ -84,6 +96,100 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+ 
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ECEDDA;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* rounded corners */
+  border-radius: 40px;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.img-responsive{
+    /** crop square center **/
+    object-fit: cover;
+    /** make image responsive **/
+    width: 60%;
+    height: 60%;
+    /** let the image be centered **/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    
+}
+.data-here{
+    /** left justify **/
+    text-align: left;
+    /** add margin to the left relative to the screen size **/
+    margin-left: 18vw;
+    margin-right: 18vw;
+    /** make the items left justified **/
+    display: inline-flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    font-family: "GlacialIndifferenceBold";
+    font-weight: bolder;
+
+}
+.button-category-btn{
+    /** rounded **/
+    border-radius: 40px;
+    /** add margin to the left relative to the screen size **/
+    background-color: #FFF0A1;
+    /** widen   **/
+    height: 40px;
+
+}
+.filter-category-row{
+    /** padding top **/
+    padding-top: 20px;
+    /** center all items **/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 </style>
 <!-- local css only -->
 <link rel="stylesheet" href="css/card.css">
@@ -104,6 +210,9 @@ body {
  </div>
 <div class="button-deck">
     <a href="">Pharmacy</a>
+</div>
+<div class="button-deck">
+  <a href="pharmacy_store.html">Pharmacy</a>
 </div>
 <div class="button-deck">
     <a href="about.html">About</a>
@@ -127,6 +236,14 @@ body {
 <div class="main-body-search">
 <div  class="main-search">
   <div class="row-search">
+    <!-- back button-->
+    <div class="back-button">
+      <a href="pharmacy_store.html"><i  style="color:white; font-size: x-large;" class="fa fa-arrow-left"></i></a>
+
+    </div>
+    <!--- spaces-->
+    <div class="space" style="width: 20px;">
+    </div>
     <div class="search-button">
       <input type="text" placeholder="Search.." id="search" width="50%"> 
       <!-- icon search--> 
@@ -136,10 +253,18 @@ body {
   </div>
  
 </div>
+<div class="filter-category-row">
+  <div class="button-category">
+    <button class="button-category-btn" onclick="filterTheMedicine('Diabetes')">Diabetes</button>
+  </div>
+  <div class="button-category">
+    <button class="button-category-btn" onclick="filterTheMedicine('Pain Reliever')">Pain Reliever</button>
+</div>
+</div>
 <div class="row">
     <div class="column">
       <div class="column">
-        <div   id="cm-p" class="card-store">
+        <div class="card-store" onclick="filterByStore('CM Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               CM
@@ -156,9 +281,9 @@ body {
       </div>
     </div>
     <!-- STORE -->
-    <div id="dc-p" class="column">
+    <div class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('DC Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               DC
@@ -175,9 +300,9 @@ body {
       </div>
     </div>
     <!-- STORE -->
-    <div id="dl-p" class="column">
+    <div class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('DL Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               DL
@@ -194,9 +319,9 @@ body {
       </div>
     </div>
     <!-- STORE -->
-    <div id="lz-p" class="column">
+    <div class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('LZ Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               LZ
@@ -213,11 +338,11 @@ body {
       </div>
     </div>
     <!-- STORE -->
-    <div id="md-p" class="column">
+    <div  class="column">
       <div class="column">
         <div class="card-store">
           <div class="store-name">
-            <div class="name-sub">
+            <div onclick="filterByStore('MD Pharmacy')" class="name-sub">
               MD
             </div>
             <div class="name-sub">
@@ -232,9 +357,9 @@ body {
       </div>
     </div>
     <!-- STORE -->
-    <div id="tj-p" class="column">
+    <div  class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('TJ Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               TJ
@@ -251,18 +376,26 @@ body {
       </div>
     </div>
   </div>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="medicineName"></div>
+      <div class="data-here">
+          <!-- add data-->
+      </div>
+    </div>
+  
+  </div>
+
     
   
 <!-- add the medicine js-->
 <script src="medicine.js"></script>
 <script src="pharma.js"></script>
 <script>
-  /**
- 
-
-**/
-  console.log("Hello World");
-
  
    
   $(function() {
@@ -275,18 +408,19 @@ body {
       val = val.toLowerCase();
       $.each(listOfMedicines, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
-        if (obj.name.toLowerCase().indexOf(val) != -1) {
+       // include the store name
+       if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1) {
           medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
           $(".row").append(`
           <dv class="column">
           <div class="column">
-            <div class="store-tag">
+            <div class="store-tag" onclick="filterByStore('${obj.store}')">
               ${obj.store}
       </div>
-          <div class="card">
-            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          <div class="card ${obj.name}">
+            <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
           </div>
           </div>
           </div>
@@ -300,6 +434,9 @@ body {
 
       }
       );
+
+      // store search append as well
+      
     }
     if(medicineSearch.length == 0){
       $(".row").append(`
@@ -331,6 +468,189 @@ body {
   
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+  }
+  ////// ===== modal ====== /////
+  var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+  function openModalPls(medicineNameKey){
+   console.log(medicineNameKey);
+
+   // clear all the data
+    var data = document.getElementsByClassName("data-here")[0];
+    data.innerHTML = "";
+
+    /** 
+    Category: ___
+Description: ___
+Prescription: (kasi need daw po yung "Over-the-counter" na word)
+Stock: __ **/
+   modal.style.display = "block";
+  // get modal class but not the first one
+    var modalClass = modal.classList[1] + " --- " + name;
+    
+  // add data
+    var data = document.getElementsByClassName("data-here")[0];
+    console.log(document.getElementsByClassName("data-here"));
+    console.log(data);
+    // get the second class
+    var secondClass = data.classList[0];
+
+    // add data in medicineClass
+
+    
+    
+    // add image
+    var img = document.createElement("img");
+    // add class
+    img.classList.add("img-responsive");
+    // get the image
+    img.src = getTheImage(medicineNameKey);
+    // add the image
+
+   
+    data.appendChild(img);
+    
+      // add category
+      var category = document.createElement("p");
+    // add category with function on click to filter the medicine by category and the category is in the array
+    category.innerHTML = "Category: ";
+    toAnchorLinkWithOnClick = getTheDescription(medicineNameKey)[1];
+    for(var i = 0; i < toAnchorLinkWithOnClick.length; i++){
+      category.innerHTML += `<a 
+      style= "color: #000; text-decoration: underline; cursor: pointer;"
+      href="#" onclick="filterTheMedicine('${toAnchorLinkWithOnClick[i]}')">${toAnchorLinkWithOnClick[i]}</a>      <br>`;
+    }
+    data.appendChild(category);
+    
+    // add description
+    var description = document.createElement("p");
+    description.innerHTML = getTheDescription(medicineNameKey)[0];
+    console.log("TEST: "+getTheDescription(medicineNameKey))
+    
+    data.appendChild(description);
+
+    // add prescription
+    var prescription = document.createElement("p");
+    prescription.innerHTML = "Prescription: Over-the-counter                                                              ";
+    data.appendChild(prescription);
+
+    // add new line
+    var newLine = document.createElement("p");
+    data.appendChild(newLine);
+    // add stock
+    var stock = document.createElement("p");
+    stock.innerHTML = "Stock: 188";
+    data.appendChild(stock);
+
+
+  
+
+    
+
+
+  }
+
+  function getTheImage(medicineNameKey){
+    // find the index of the medicine
+    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
+    // get the image
+    nameOfMedicine = listOfMedicines[index].name;
+    image = listOfMedicines[index].image;
+    return image;
+  }
+  
+
+  function getTheDescription(medicineNameKey){
+  description = "";
+
+  console.log(`MEDICINE NAME KEY: ${medicineNameKey}`);
+  // find the index of the medicine
+  var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
+  console.log(`INDEX: ${index}`);
+  // get the description
+  nameOfMedicine = listOfMedicines[index].name;
+  description = DESCRIPTION[nameOfMedicine]["description"];
+  console.log(`DESCRIPTION: ${description}`);
+  // add category with the action button for category
+  var category = DESCRIPTION[nameOfMedicine]["category"];
+  console.log(`CATEGORY: ${category}`);
+  return [description, category];
+  }
+
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+function filterTheMedicine(category){
+  // close the modal
+  modal.style.display = "none";
+
+  // first is to filter the medicine by category
+  console.log(category);
+  // get all the medicine with the category in the DESCRIPTION map
+  var medicineWithCategory = [];
+  $.each(DESCRIPTION, function(key, value) {
+    console.log(key, value);
+    if(value.category.includes(category)){
+      medicineWithCategory.push(key);
+    }
+  });
+  console.log(medicineWithCategory);
+  // filter the medicine
+  $(".row").html("");
+  $.each(listOfMedicines, function(_,obj) {
+    if(medicineWithCategory.includes(obj.name)){
+      $(".row").append(`
+      <dv class="column">
+      <div class="column">
+        <div class="store-tag">
+          ${obj.store}
+  </div>
+      <div class="card ${obj.name}">
+        <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+      </div>
+      </div>
+      </div>
+        `);
+    }
+  });
+}
+
+
+
+  function filterByStore(storeName){
+    console.log(storeName);
+    $(".row").html("");
+    $.each(listOfMedicines, function(_,obj) {
+      if(obj.store == storeName){
+        $(".row").append(`
+        <dv class="column">
+        <div class="column">
+          <div class="store-tag">
+            ${obj.store}
+    </div>
+        <div class="card ${obj.name}">
+          <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+        </div>
+        </div>
+        </div>
+          `);
+      }
+    });
   }
   </script>
 </body>
