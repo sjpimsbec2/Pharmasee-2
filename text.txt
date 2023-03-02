@@ -1,0 +1,12 @@
+`
+        <dv class="column">
+        <div class="column">
+          <div class="store-tag">
+            ${obj.store}
+    </div>
+        <div class="card ${obj.name}">
+          <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+        </div>
+        </div>
+        </div>
+          `

@@ -4,6 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("FONTS/glacial-indifference/GlacialIndifference-Regular.otf");
+  src:url("FONTS/glacial-indifference/GlacialIndifference-Regular.otf") format("opentype"),
+        url("FONTS/glacial-indifference/GlacialIndifference-Bold.otf") format("opentype");
+       
+
+}
+@font-face {
+  font-family: "GlacialIndifferenceBold";
+  src: url("FONTS/glacial-indifference/GlacialIndifference-Bold.otf");
+}
 body {
   font-family: "Lato", sans-serif;
 }
@@ -149,15 +161,34 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin-left: 18vw;
     margin-right: 18vw;
     /** make the items left justified **/
-    display: flex;
+    display: inline-flexbox;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
     align-content: flex-start;
+    font-family: "GlacialIndifferenceBold";
+    font-weight: bolder;
 
 }
+.button-category-btn{
+    /** rounded **/
+    border-radius: 40px;
+    /** add margin to the left relative to the screen size **/
+    background-color: #FFF0A1;
+    /** widen   **/
+    height: 40px;
 
+}
+.filter-category-row{
+    /** padding top **/
+    padding-top: 20px;
+    /** center all items **/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
 </style>
 <!-- local css only -->
@@ -202,6 +233,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="main-body-search">
 <div  class="main-search">
   <div class="row-search">
+    <!-- back button-->
+    <div class="back-button">
+      <a href="pharmacy_store.html"><i  style="color:white; font-size: x-large;" class="fa fa-arrow-left"></i></a>
+
+    </div>
+    <!--- spaces-->
+    <div class="space" style="width: 20px;">
+    </div>
     <div class="search-button">
       <input type="text" placeholder="Search.." id="search" width="50%"> 
       <!-- icon search--> 
@@ -211,10 +250,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </div>
  
 </div>
+<div class="filter-category-row">
+  <div class="button-category">
+    <button class="button-category-btn" onclick="filterTheMedicine('Diabetes')">Diabetes</button>
+  </div>
+  <div class="button-category">
+    <button class="button-category-btn" onclick="filterTheMedicine('Pain Reliever')">Pain Reliever</button>
+</div>
+</div>
 <div class="row">
     <div class="column">
       <div class="column">
-        <div   id="cm-p" class="card-store">
+        <div class="card-store" onclick="filterByStore('CM Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               CM
@@ -231,9 +278,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
       </div>
     </div>
     <!-- STORE -->
-    <div id="dc-p" class="column">
+    <div class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('DC Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               DC
@@ -250,9 +297,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
       </div>
     </div>
     <!-- STORE -->
-    <div id="dl-p" class="column">
+    <div class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('DL Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               DL
@@ -269,9 +316,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
       </div>
     </div>
     <!-- STORE -->
-    <div id="lz-p" class="column">
+    <div class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('LZ Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               LZ
@@ -288,11 +335,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
       </div>
     </div>
     <!-- STORE -->
-    <div id="md-p" class="column">
+    <div  class="column">
       <div class="column">
         <div class="card-store">
           <div class="store-name">
-            <div class="name-sub">
+            <div onclick="filterByStore('MD Pharmacy')" class="name-sub">
               MD
             </div>
             <div class="name-sub">
@@ -307,9 +354,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
       </div>
     </div>
     <!-- STORE -->
-    <div id="tj-p" class="column">
+    <div  class="column">
       <div class="column">
-        <div class="card-store">
+        <div class="card-store" onclick="filterByStore('TJ Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               TJ
@@ -358,14 +405,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
       val = val.toLowerCase();
       $.each(listOfMedicines, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
-        if (obj.name.toLowerCase().indexOf(val) != -1) {
+       // include the store name
+       if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1) {
           medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
           $(".row").append(`
           <dv class="column">
           <div class="column">
-            <div class="store-tag">
+            <div class="store-tag" onclick="filterByStore('${obj.store}')">
               ${obj.store}
       </div>
           <div class="card ${obj.name}">
@@ -383,6 +431,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
       }
       );
+
+      // store search append as well
+      
     }
     if(medicineSearch.length == 0){
       $(".row").append(`
@@ -427,6 +478,15 @@ var span = document.getElementsByClassName("close")[0];
   function openModalPls(medicineNameKey){
    console.log(medicineNameKey);
 
+   // clear all the data
+    var data = document.getElementsByClassName("data-here")[0];
+    data.innerHTML = "";
+
+    /** 
+    Category: ___
+Description: ___
+Prescription: (kasi need daw po yung "Over-the-counter" na word)
+Stock: __ **/
    modal.style.display = "block";
   // get modal class but not the first one
     var modalClass = modal.classList[1] + " --- " + name;
@@ -439,8 +499,7 @@ var span = document.getElementsByClassName("close")[0];
     var secondClass = data.classList[0];
 
     // add data in medicineClass
-    var medicineName = document.getElementsByClassName("medicineName")[0];
-    medicineName.innerHTML = "Type: " + medicineNameKey;
+
     
     
     // add image
@@ -450,17 +509,48 @@ var span = document.getElementsByClassName("close")[0];
     img.src = "images/DC/2.png";
     data.appendChild(img);
     
+      // add category
+      var category = document.createElement("p");
+    // add category with function on click to filter the medicine by category and the category is in the array
+    category.innerHTML = "Category: ";
+    toAnchorLinkWithOnClick = getTheDescription(medicineNameKey)[1];
+    for(var i = 0; i < toAnchorLinkWithOnClick.length; i++){
+      category.innerHTML += `<a 
+      style= "color: #000; text-decoration: underline; cursor: pointer;"
+      href="#" onclick="filterTheMedicine('${toAnchorLinkWithOnClick[i]}')">${toAnchorLinkWithOnClick[i]}</a>      <br>`;
+    }
+    data.appendChild(category);
+    
     // add description
     var description = document.createElement("p");
-    description.innerHTML = getTheDescription(medicineNameKey);
+    description.innerHTML = getTheDescription(medicineNameKey)[0];
     console.log("TEST: "+getTheDescription(medicineNameKey))
-    data.appendChild(description);
-    // add what kind of drug it i
     
-    // add what kind of drug it is
+    data.appendChild(description);
+
+    // add prescription
+    var prescription = document.createElement("p");
+    prescription.innerHTML = "Prescription: Over-the-counter                                                              ";
+    data.appendChild(prescription);
+
+    // add new line
+    var newLine = document.createElement("p");
+    data.appendChild(newLine);
+    // add stock
+    var stock = document.createElement("p");
+    stock.innerHTML = "Stock: 188";
+    data.appendChild(stock);
+
+
+  
+
+    
 
 
   }
+
+  
+
   function getTheDescription(medicineNameKey){
   description = "";
 
@@ -469,9 +559,13 @@ var span = document.getElementsByClassName("close")[0];
   var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
   console.log(`INDEX: ${index}`);
   // get the description
-  description = listOfMedicines[index].description;
+  nameOfMedicine = listOfMedicines[index].name;
+  description = DESCRIPTION[nameOfMedicine]["description"];
   console.log(`DESCRIPTION: ${description}`);
-  return description;
+  // add category with the action button for category
+  var category = DESCRIPTION[nameOfMedicine]["category"];
+  console.log(`CATEGORY: ${category}`);
+  return [description, category];
   }
 
 
@@ -479,6 +573,69 @@ var span = document.getElementsByClassName("close")[0];
     if (event.target == modal) {
       modal.style.display = "none";
     }
+  }
+
+  span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+function filterTheMedicine(category){
+  // close the modal
+  modal.style.display = "none";
+
+  // first is to filter the medicine by category
+  console.log(category);
+  // get all the medicine with the category in the DESCRIPTION map
+  var medicineWithCategory = [];
+  $.each(DESCRIPTION, function(key, value) {
+    console.log(key, value);
+    if(value.category.includes(category)){
+      medicineWithCategory.push(key);
+    }
+  });
+  console.log(medicineWithCategory);
+  // filter the medicine
+  $(".row").html("");
+  $.each(listOfMedicines, function(_,obj) {
+    if(medicineWithCategory.includes(obj.name)){
+      $(".row").append(`
+      <dv class="column">
+      <div class="column">
+        <div class="store-tag">
+          ${obj.store}
+  </div>
+      <div class="card ${obj.name}">
+        <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+      </div>
+      </div>
+      </div>
+        `);
+    }
+  });
+}
+
+
+
+  function filterByStore(storeName){
+    console.log(storeName);
+    $(".row").html("");
+    $.each(listOfMedicines, function(_,obj) {
+      if(obj.store == storeName){
+        $(".row").append(`
+        <dv class="column">
+        <div class="column">
+          <div class="store-tag">
+            ${obj.store}
+    </div>
+        <div class="card ${obj.name}">
+          <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+        </div>
+        </div>
+        </div>
+          `);
+      }
+    });
   }
   </script>
 </body>
