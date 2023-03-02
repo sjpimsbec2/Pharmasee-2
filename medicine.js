@@ -445,8 +445,7 @@ var DESCRIPTION = {
   "Bonamine": {
     "description": "A medication used to relieve symptoms of vertigo and motion sickness.",
     "category": [
-      "Anti-emetics",
-      "Anti-vertigo"
+      "Anti-emetics/Anti-vertigo"
     ]
   },
   "Neobloc": {
@@ -601,7 +600,7 @@ var DESCRIPTION = {
     
       "Bonamine": {
       "description": "Used for the prevention and treatment of nausea, vomiting, and dizziness associated with motion sickness and vertigo.",
-      "category": ["Anti-emetics", "Anti-vertigo"]
+      "category": ["Anti-emetics/Anti-vertigo"]
       },
       "Mefenamic Acid": {
       "description": "A nonsteroidal anti-inflammatory drug (NSAID) used for the relief of mild to moderate pain.",
