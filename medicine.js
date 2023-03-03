@@ -612,7 +612,7 @@ var DESCRIPTION = {
       },
       "Kremil-S Chewable": {
       "description": "An antacid/antiflatulent used for the relief of hyperacidity, dyspepsia, and gas pains.",
-      "category": ["Antacids", "Antiflatulents"]
+      "category": ["Antacids/Antiflatulents"]
       },
       "Tempra Forte": {
       "description": "An analgesic/antipyretic used for the relief of mild to moderate pain and fever.",
