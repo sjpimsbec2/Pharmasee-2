@@ -338,13 +338,23 @@ listOfCategories = [
 {name:"Bispheosphonates", image:"images/CATEGORY/34.png"},
 {name:"Cold Sores", image:"images/CATEGORY/36.png"},
 {name:"Inhalation Solution", image:"images/CATEGORY/37.png"},
-{name:"Andergenic Blocking Agents", image:"images/CATEGORY/38.png"},
+{name:"Adrenergic Blocking Agents", image:"images/CATEGORY/38.png"},
 {name:"Eyedrops", image:"images/CATEGORY/39.png"},
 
 
 
 
 ];
+
+listOfCategories = listOfCategories.sort(function(a, b){
+    var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
+    if (nameA < nameB) //sort string ascending
+        return -1 
+    if (nameA > nameB)
+        return 1
+    return 0 //default return value (no sorting)
+});
+
 function loadData(){
     $(".row").html("");
     for(var i = 0; i < listOfCategories.length; i++){
