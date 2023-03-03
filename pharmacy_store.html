@@ -415,7 +415,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
               ${obj.store}
       </div>
           <div class="card ${obj.name}">
-            <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+            <img onclick="openModalPls('${obj.name}', '${obj.store}'')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
           </div>
           </div>
           </div>
@@ -473,7 +473,7 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-  function openModalPls(medicineNameKey){
+  function openModalPls(medicineNameKey, storeName){
    console.log(medicineNameKey);
 
    // clear all the data
@@ -505,7 +505,7 @@ Stock: __ **/
     // add class
     img.classList.add("img-responsive");
     // get the image
-    img.src = getTheImage(medicineNameKey);
+    img.src = getTheImage(medicineNameKey, storeName);
     // add the image
 
    
@@ -532,7 +532,7 @@ Stock: __ **/
 
     // add prescription
     var prescription = document.createElement("p");
-    prescription.innerHTML = "Prescription: Over-the-counter                                                              ";
+    prescription.innerHTML =`Prescription: ${getThePrescription(medicineNameKey, storeName)}`;
     data.appendChild(prescription);
 
     // add new line
@@ -540,7 +540,7 @@ Stock: __ **/
     data.appendChild(newLine);
     // add stock
     var stock = document.createElement("p");
-    stock.innerHTML = "Stock: 188";
+    stock.innerHTML = `Stocks: ${getTheStock(medicineNameKey, storeName)}`;
     data.appendChild(stock);
 
 
@@ -551,9 +551,27 @@ Stock: __ **/
 
   }
 
-  function getTheImage(medicineNameKey){
+  function getTheStock(medicineNameKey, storeName){
     // find the index of the medicine
-    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
+    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
+    // get the image
+    nameOfMedicine = listOfMedicines[index].name;
+    stock = listOfMedicines[index].stock;
+    return stock;
+  }
+
+  function getThePrescription(medicineNameKey, storeName){
+    // find the index of the medicine
+    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
+    // get the image
+    nameOfMedicine = listOfMedicines[index].name;
+    prescription = listOfMedicines[index].prescription;
+    return prescription;
+  }
+
+  function getTheImage(medicineNameKey, storeName){
+    // find the index of the medicine
+    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
     // get the image
     nameOfMedicine = listOfMedicines[index].name;
     image = listOfMedicines[index].image;
@@ -639,7 +657,7 @@ function filterTheMedicine(category){
             ${obj.store}
     </div>
         <div class="card ${obj.name}">
-          <img onclick="openModalPls('${obj.name}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          <img onclick="openModalPls('${obj.name}', '${obj.store}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
         </div>
         </div>
         </div>

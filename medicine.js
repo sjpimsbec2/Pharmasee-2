@@ -1,338 +1,387 @@
+var p = 'Prescription Needed'
+var o = 'Over-the-counter'
 var listOfMedicines = [
    // DC Pharmacy
-    /** Cetirizine
-Azithromycin
-Glyxambi
-Biogesic
-Bioflu
-Advil Liquid Gel Capsule
-Diamicron MR
-Calpol
-Glucotin
-Saphormin
-Dolfenal
-Aspilets
-ImmunPro
-Fern-C
-Sleepwell
-Bonamine
-Mefenamic Acid
-Centrum Advance
-Kremil-S Chewable
-Tempra Forte
-Conzace Softgel 
-Clusivol Plus
-Ascorbic Acid Vitamin
-Cefalexin
-Allerkid*/
+
   {name: "Cetirizine",
     image: "images/DC/1.png",
     store: "DC Pharmacy",
-    stock:100, },
-  {name: "Azithromycin", image: "images/DC/2.png", store: "DC Pharmacy", stock:250, },
-  {name: "Glyxambi", image: "images/DC/3.png", store: "DC Pharmacy", stock:250, },
-  {name: "Biogesic", image: "images/DC/4.png", store: "DC Pharmacy", stock:250, },
-  {name: "Bioflu", image: "images/DC/5.png", store: "DC Pharmacy", stock:250, },
-  {name: "Advil Liquid Gel Capsule", image: "images/DC/6.png", store: "DC Pharmacy", stock:250, },
-  {name: "Diamicron MR", image: "images/DC/7.png", store: "DC Pharmacy", stock:250, },
-  {name: "Calpol", image: "images/DC/8.png", store: "DC Pharmacy", stock:0, },
-  {name: "Glucotin", image: "images/DC/9.png", store: "DC Pharmacy", stock:0, },
-  {name: "Saphormin", image: "images/DC/10.png", store: "DC Pharmacy", stock:250, },
-  {name: "Dolfenal", image: "images/DC/11.png", store: "DC Pharmacy", stock:250, },
-  {name: "Aspilets", image: "images/DC/12.png", store: "DC Pharmacy", stock:250, },
-  {name: "ImmunPro", image: "images/DC/13.png", store: "DC Pharmacy", stock:250, },
-  {name: "Fern-C", image: "images/DC/14.png", store: "DC Pharmacy", stock:250, },
-  {name: "Sleepwell", image: "images/DC/15.png", store: "DC Pharmacy", stock:250, },
-  {name: "Bonamine", image: "images/DC/16.png", store: "DC Pharmacy", stock:250, },
-  {name: "Mefenamic Acid", image: "images/DC/17.png", store: "DC Pharmacy", stock:250, },
-  {name: "Centrum Advance", image: "images/DC/18.png", store: "DC Pharmacy", stock:250, },
-  {name: "Kremil-S Chewable", image: "images/DC/19.png", store: "DC Pharmacy", stock:250, },
-  {name: "Tempra Forte", image: "images/DC/20.png", store: "DC Pharmacy", stock:15, },
-  {name: "Conzace Softgel", image: "images/DC/21.png", store: "DC Pharmacy", stock:250, },
-  {name: "Clusivol Plus", image: "images/DC/22.png", store: "DC Pharmacy", stock:250, },
-  {name: "Ascorbic Acid Vitamin", image: "images/DC/23.png", store: "DC Pharmacy", stock:250, },
-  {name: "Cefalexin", image: "images/DC/24.png", store: "DC Pharmacy", stock:250, },
-  {name: "Allerkid", image: "images/DC/25.png", store: "DC Pharmacy", stock:15, },
-
-  /** DL Pharmacy */
-  /**
-  Cetirizine
-Azithromycin
-Glyxambi
-Biogesic
-Bioflu
-Advil Liquid Gel
-Diamicron MR
-Calpol
-Glucotin
-Saphormin T500
-Dolfenal
-Aspilets
-ImmunPro
-Fern-C
-Sleepwell
-Bonamine
-Mefenamic Acid
-Centrum Advance
-Kremil-S Chewable
-Tempra Forte
-Conzace Softgel
-Clusivol Plus
-Ascorbic Acid Vitamin
-Cefalexin
-Allerkid**/
-  {name: "Cetirizine", image: "images/DL/1.png", store: "DL Pharmacy", stock:250, },
-  {name: "Azithromycin", image: "images/DL/2.png", store: "DL Pharmacy", stock:250, },
-  {name: "Glyxambi", image: "images/DL/3.png", store: "DL Pharmacy", stock:250, },
-  {name: "Biogesic", image: "images/DL/4.png", store: "DL Pharmacy", stock:250, },
-  {name: "Bioflu", image: "images/DL/5.png", store: "DL Pharmacy", stock:250, },
-  {name: "Advil Liquid Gel", image: "images/DL/6.png", store: "DL Pharmacy", stock:250, },
-  {name: "Diamicron MR", image: "images/DL/7.png", store: "DL Pharmacy", stock:250, },
-  {name: "Calpol", image: "images/DL/8.png", store: "DL Pharmacy", stock:0, },
-  {name: "Glucotin", image: "images/DL/9.png", store: "DL Pharmacy", stock:0, },
-  {name: "Saphormin T500", image: "images/DL/10.png", store: "DL Pharmacy", stock:250, },
-  {name: "Dolfenal", image: "images/DL/11.png", store: "DL Pharmacy", stock:250, },
-  {name: "Aspilets", image: "images/DL/12.png", store: "DL Pharmacy", stock:250, },
-  {name: "ImmunPro", image: "images/DL/13.png", store: "DL Pharmacy", stock:250, },
-  {name: "Fern-C", image: "images/DL/14.png", store: "DL Pharmacy", stock:14, },
-  {name: "Sleepwell", image: "images/DL/15.png", store: "DL Pharmacy", stock:250, },
-  {name: "Bonamine", image: "images/DL/16.png", store: "DL Pharmacy", stock:250, },
-  {name: "Mefenamic Acid", image: "images/DL/17.png", store: "DL Pharmacy", stock:250, },
-  {name: "Centrum Advance", image: "images/DL/18.png", store: "DL Pharmacy", stock:250, },
-  {name: "Kremil-S Chewable", image: "images/DL/19.png", store: "DL Pharmacy", stock:250, },
-  {name: "Tempra Forte", image: "images/DL/20.png", store: "DL Pharmacy", stock:250, },
-  {name: "Conzace Softgel", image: "images/DL/21.png", store: "DL Pharmacy", stock:250, },
-  {name: "Clusivol Plus", image: "images/DL/22.png", store: "DL Pharmacy", stock:250, },
-  {name: "Ascorbic Acid Vitamin", image: "images/DL/23.png", store: "DL Pharmacy", stock:250, },
-  {name: "Cefalexin", image: "images/DL/24.png", store: "DL Pharmacy", stock:250, },
-  {name: "Allerkid", image: "images/DL/25.png", store: "DL Pharmacy", stock:14, },
+    stock:100, prescription: 'Over-the-counter'},
+  {name: "Azithromycin", image: "images/DC/2.png", store: "DC Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Glyxambi", image: "images/DC/3.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Biogesic", image: "images/DC/4.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Bioflu", image: "images/DC/5.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Advil Liquid Gel Capsule", image: "images/DC/6.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Diamicron MR", image: "images/DC/7.png", store: "DC Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Calpol", image: "images/DC/8.png", store: "DC Pharmacy", stock:0, prescription: 'Over-the-counter'},
+  {name: "Glucotin", image: "images/DC/9.png", store: "DC Pharmacy", stock:0, prescription: 'Prescription Needed'},
+  {name: "Saphormin", image: "images/DC/10.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Dolfenal", image: "images/DC/11.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Aspilets", image: "images/DC/12.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "ImmunPro", image: "images/DC/13.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Fern-C", image: "images/DC/14.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Sleepwell", image: "images/DC/15.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Bonamine", image: "images/DC/16.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Mefenamic Acid", image: "images/DC/17.png", store: "DC Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Centrum Advance", image: "images/DC/18.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Kremil-S Chewable", image: "images/DC/19.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Tempra Forte", image: "images/DC/20.png", store: "DC Pharmacy", stock:15, prescription: 'Prescription Needed'},
+  {name: "Conzace Softgel", image: "images/DC/21.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Clusivol Plus", image: "images/DC/22.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Ascorbic Acid Vitamin", image: "images/DC/23.png", store: "DC Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Cefalexin", image: "images/DC/24.png", store: "DC Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Allerkid", image: "images/DC/25.png", store: "DC Pharmacy", stock:15, prescription: 'Over-the-counter'},
+  //  Cetirizine: Over-the-counter
+  //  Azithromycin: Prescription Needed
+  //  Glyxambi: Over-the-counter
+  //  Biogesic: Over-the-counter
+  //  Bioflu: Over-the-counter
+  //  Advil Liquid Gel Capsule: Over-the-counter
+  //  Diamicron MR: Prescription Needed
+  //  Calpol: Over-the-counter
+  //  Glucotin: Prescription Needed
+  //  Saphormin: Over-the-counter
+  //  Dolfenal: Over-the-counter
+  //  Aspilets: Over-the-counter
+  //  ImmunPro: Over-the-counter
+  //  Fern-C: Over-the-counter
+  //  Sleepwell: Over-the-counter
+  //  Bonamine: Over-the-counter
+  //  Mefenamic Acid: Prescription Needed
+  //  Centrum Advance: Over-the-counter
+  //  Kremil-S Chewable: Over-the-counter
+  //  Tempra Forte: Prescription Needed
+  //  Conzace Softgel: Over-the-counter
+  //  Clusivol Plus: Over-the-counter
+  //  Ascorbic Acid Vitamin: Over-the-counter
+  //  Cefalexin: Prescription Needed
+  //  Allerkid: Over-the-counter
+  {name: "Cetirizine", image: "images/DL/1.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Azithromycin", image: "images/DL/2.png", store: "DL Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Glyxambi", image: "images/DL/3.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Biogesic", image: "images/DL/4.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Bioflu", image: "images/DL/5.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Advil Liquid Gel", image: "images/DL/6.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Diamicron MR", image: "images/DL/7.png", store: "DL Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Calpol", image: "images/DL/8.png", store: "DL Pharmacy", stock:0, prescription: 'Over-the-counter'},
+  {name: "Glucotin", image: "images/DL/9.png", store: "DL Pharmacy", stock:0, prescription: 'Prescription Needed'},
+  {name: "Saphormin T500", image: "images/DL/10.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Dolfenal", image: "images/DL/11.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Aspilets", image: "images/DL/12.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "ImmunPro", image: "images/DL/13.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Fern-C", image: "images/DL/14.png", store: "DL Pharmacy", stock:14, prescription: 'Over-the-counter'},
+  {name: "Sleepwell", image: "images/DL/15.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Bonamine", image: "images/DL/16.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Mefenamic Acid", image: "images/DL/17.png", store: "DL Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Centrum Advance", image: "images/DL/18.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Kremil-S Chewable", image: "images/DL/19.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Tempra Forte", image: "images/DL/20.png", store: "DL Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Conzace Softgel", image: "images/DL/21.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Clusivol Plus", image: "images/DL/22.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Ascorbic Acid Vitamin", image: "images/DL/23.png", store: "DL Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Cefalexin", image: "images/DL/24.png", store: "DL Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Allerkid", image: "images/DL/25.png", store: "DL Pharmacy", stock:14, prescription: 'Over-the-counter'},
 
   /** TJ Pharmacy */
   /**
-   Biogesic
-Paracetamol
-Paracetamol
-Neozep
-Bioflu
-Amoxicillin
-Diatabs
-Colchicine
-Flanax
-Rexidol
-Alaxan FR
-Metformin
-Robitussin
-Solmux
-Decolgen
-Calciumade
-Potencee
-Kremil-S
-Lomotil
-Tempra
-Plemex Forte
-Gingko Biloba
-Azithromycin
-Basagine Insulin
-ASCOF Forte**/
-  {name: "Biogesic", image: "images/TJ/1.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Paracetamol", image: "images/TJ/2.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Paracetamol", image: "images/TJ/3.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Neozep", image: "images/TJ/4.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Bioflu", image: "images/TJ/5.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Amoxicillin", image: "images/TJ/6.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Diatabs", image: "images/TJ/7.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Colchicine", image: "images/TJ/8.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Flanax", image: "images/TJ/9.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Rexidol", image: "images/TJ/10.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Alaxan FR", image: "images/TJ/11.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Metformin", image: "images/TJ/12.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Robitussin", image: "images/TJ/13.png", store: "TJ Pharmacy", stock:13, },
-  {name: "Solmux", image: "images/TJ/14.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Decolgen", image: "images/TJ/15.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Calciumade", image: "images/TJ/16.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Potencee", image: "images/TJ/17.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Kremil-S", image: "images/TJ/18.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Lomotil", image: "images/TJ/19.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Tempra", image: "images/TJ/20.png", store: "TJ Pharmacy", stock:13, },
-  {name: "Plemex Forte", image: "images/TJ/21.png", store: "TJ Pharmacy", stock:13, },
-  {name: "Gingko Biloba", image: "images/TJ/22.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Azithromycin", image: "images/TJ/23.png", store: "TJ Pharmacy", stock:250, },
-  {name: "Basagine Insulin", image: "images/TJ/24.png", store: "TJ Pharmacy", stock:13, },
-  {name: "ASCOF Forte", image: "images/TJ/25.png", store: "TJ Pharmacy", stock:13, },
+  Biogesic: Over-the-counter	
+Paracetamol: Over-the-counter
+Paracetamol: Over-the-counter
+Neozep: Over-the-counter
+Bioflu: Over-the-counter	
+Amoxicillin: Prescription Needed	
+Diatabs: Over-the-counter
+Colchicine: Prescription Needed	
+Flanax: Over-the-counter
+Rexidol: Over-the-counter
+Alaxan FR: Over-the-counter
+Metformin: Prescription Needed	
+Robitussin: Over-the-counter
+Solmux: Over-the-counter
+Decolgen: Over-the-counter
+Calciumade: Over-the-counter
+Potencee: Over-the-counter
+Kremil-S: Over-the-counter	
+Lomotil: Over-the-counter
+Tempra: Over-the-counter
+Plemex Forte: Over-the-counter	
+Gingko Biloba: Over-the-counter
+Azithromycin: Prescription Needed
+Basagine Insulin	: Prescription Needed
+ASCOF Forte: Over-the-counter*/
+  {name: "Biogesic", image: "images/TJ/1.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Paracetamol", image: "images/TJ/2.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Paracetamol", image: "images/TJ/3.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Neozep", image: "images/TJ/4.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Bioflu", image: "images/TJ/5.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Amoxicillin", image: "images/TJ/6.png", store: "TJ Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Diatabs", image: "images/TJ/7.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Colchicine", image: "images/TJ/8.png", store: "TJ Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Flanax", image: "images/TJ/9.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Rexidol", image: "images/TJ/10.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Alaxan FR", image: "images/TJ/11.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Metformin", image: "images/TJ/12.png", store: "TJ Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Robitussin", image: "images/TJ/13.png", store: "TJ Pharmacy", stock:13, prescription: 'Over-the-counter'},
+  {name: "Solmux", image: "images/TJ/14.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Decolgen", image: "images/TJ/15.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Calciumade", image: "images/TJ/16.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Potencee", image: "images/TJ/17.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Kremil-S", image: "images/TJ/18.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Lomotil", image: "images/TJ/19.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Tempra", image: "images/TJ/20.png", store: "TJ Pharmacy", stock:13, prescription: 'Over-the-counter'},
+  {name: "Plemex Forte", image: "images/TJ/21.png", store: "TJ Pharmacy", stock:13, prescription: 'Over-the-counter'},
+  {name: "Gingko Biloba", image: "images/TJ/22.png", store: "TJ Pharmacy", stock:250, prescription: 'Over-the-counter'},
+  {name: "Azithromycin", image: "images/TJ/23.png", store: "TJ Pharmacy", stock:250, prescription: 'Prescription Needed'},
+  {name: "Basagine Insulin", image: "images/TJ/24.png", store: "TJ Pharmacy", stock:13, prescription: 'Prescription Needed'},
+  {name: "ASCOF Forte", image: "images/TJ/25.png", store: "TJ Pharmacy", stock:13, prescription: 'Over-the-counter'},
 
 
   /** MD Pharmacy */
-  
-    {
-    name: "Cozaar Lozartan",
-    image: "images/MD/1.png",
-    store: "MD Pharmacy",
-    stock: 250
-    },
-    {
-    name: "Trivastal Retard",
-    image: "images/MD/2.png",
-    store: "MD Pharmacy",
-    stock: 100
-    },
-    {
-    name: "Sertralinehydrichloride",
-    image: "images/MD/3.png",
-    store: "MD Pharmacy",
-    stock: 300
-    },
-    {
-    name: "Levodopa Carbidopa",
-    image: "images/MD/4.png",
-    store: "MD Pharmacy",
-    stock: 150
-    },
-    {
-    name: "Clozapine",
-    image: "images/MD/5.png",
-    store: "MD Pharmacy",
-    stock: 50
-    },
-    {
-    name: "Mirtazapine",
-    image: "images/MD/6.png",
-    store: "MD Pharmacy",
-    stock: 200
-    },
-    {
-    name: "Tazocin",
-    image: "images/MD/7.png",
-    store: "MD Pharmacy",
-    stock: 75
-    },
-    {
-    name: "Viortoxetine",
-    image: "images/MD/8.png",
-    store: "MD Pharmacy",
-    stock: 225
-    },
-    {
-    name: "Isotretenion",
-    image: "images/MD/9.png",
-    store: "MD Pharmacy",
-    stock: 125
-    },
-    {
-    name: "Ropinirole",
-    image: "images/MD/10.png",
-    store: "MD Pharmacy",
-    stock: 175
-    },
-    {
-    name: "Aripiprazole",
-    image: "images/MD/11.png",
-    store: "MD Pharmacy",
-    stock: 300
-    },
-    {
-    name: "Amiodarone",
-    image: "images/MD/12.png",
-    store: "MD Pharmacy",
-    stock: 100
-    },
-    {
-    name: "Bromocriptine",
-    image: "images/MD/13.png",
-    store: "MD Pharmacy",
-    stock: 50
-    },
-    {
-    name: "Escitalopram",
-    image: "images/MD/14.png",
-    store: "MD Pharmacy",
-    stock: 250
-    },
-    {
-    name: "Bonamine",
-    image: "images/MD/15.png",
-    store: "MD Pharmacy",
-    stock: 150
-    },
-    {
-    name: "Desvenlafaxine",
-    image: "images/MD/16.png",
-    store: "MD Pharmacy",
-    stock: 175
-    },
-    {
-    name: "Alendronate",
-    image: "images/MD/17.png",
-    store: "MD Pharmacy",
-    stock: 225
-    },
-    {
-    name: "Acyclovir",
-    image: "images/MD/18.png",
-    store: "MD Pharmacy",
-    stock: 200
-    },
-    {name:"Albuterol", image:"images/MD/19.png", store:"MD Pharmacy", stock: 250},
-{name:"Alfuzosin", image:"images/MD/20.png", store:"MD Pharmacy", stock: 250},
-{name:"Olanzapine", image:"images/MD/21.png", store:"MD Pharmacy", stock: 250},
-{name:"Risperidone", image:"images/MD/22.png", store:"MD Pharmacy", stock: 250},
-{name:"Amoxicillin", image:"images/MD/23.png", store:"MD Pharmacy", stock: 250},
-{name:"Carmellose", image:"images/MD/24.png", store:"MD Pharmacy",stock:12},
-{name:"Basagine", image:"images/MD/25.png", store:"MD Pharmacy", stock: 250},
+//   Cozaar Losaartan: Over-the- counter
+// Trivastal Retard: Prescription Needed
+// Sertralinehydrichloride: Prescription Needed
+// Carbidopa Levodopa: Over- the-counter
+// Clozapine: Prescription Needed
+// Mirtazapine: Prescription Needed
+// Tazocin Piperacillin: Prescription Needed
+// Vortioxetine: Prescription Needed
+// Isotretenion: Prescription Needed
+// Ropinirole: Prescription Needed
+// Aripiprazole: Prescription Needed
+// Amiodarone: Prescription Needed
+// Bromocriptine: Prescription Needed
+// Escitalopram: Prescription Needed
+// Bonamine: Over-the-counter 
+// Venlafaxine: Prescription Needed
+// Alendronate: Prescription Needed
+// Acyclovir: Prescription Needed
+// Albuterol sulfate: Prescription Needed
+// Alfuzosin: Prescription Needed
+// Olanzapine: Prescription Needed
+// Risperidone: Prescription Needed
+// Amoxicillin trihydrate: Prescription Needed
+// Carmellose: Prescription Needed
+// Escitalopram: Prescription Needed
+{
+  name: "Cozaar Lozartan",
+  image: "images/MD/1.png",
+  store: "MD Pharmacy",
+  stock: 250,
+  prescription: 'Over-the-counter'
+  },
+  {
+  name: "Trivastal Retard",
+  image: "images/MD/2.png",
+  store: "MD Pharmacy",
+  stock: 100,
+  prescription: 'Prescription Needed'
+
+  },
+  {
+  name: "Sertralinehydrichloride",
+  image: "images/MD/3.png",
+  store: "MD Pharmacy",
+  stock: 300, 
+  prescription: 'Prescription Needed'
+  },
+  {
+  name: "Carbidopa Levodopa",
+  image: "images/MD/4.png",
+  store: "MD Pharmacy",
+  stock: 150,
+  prescription: o,
+  },
+  {
+  name: "Clozapine",
+  image: "images/MD/5.png",
+  store: "MD Pharmacy",
+  stock: 50,
+  prescription: p,
+  },
+  {
+  name: "Mirtazapine",
+  image: "images/MD/6.png",
+  store: "MD Pharmacy",
+  stock: 200,
+  prescription:p,
+  },
+  {
+  name: "Tazocin",
+  image: "images/MD/7.png",
+  store: "MD Pharmacy",
+  stock: 75,
+  prescription: p,
+  },
+  {
+  name: "Viortoxetine",
+  image: "images/MD/8.png",
+  store: "MD Pharmacy",
+  stock: 225,
+  prescription:p,
+  },
+  {
+  name: "Isotretenion",
+  image: "images/MD/9.png",
+  store: "MD Pharmacy",
+  stock: 125,
+  prescription:p,
+  },
+  {
+  name: "Ropinirole",
+  image: "images/MD/10.png",
+  store: "MD Pharmacy",
+  stock: 175,
+  prescription:p,
+  },
+  {
+  name: "Aripiprazole",
+  image: "images/MD/11.png",
+  store: "MD Pharmacy",
+  stock: 300,
+  prescription:p,
+  },
+  {
+  name: "Amiodarone",
+  image: "images/MD/12.png",
+  store: "MD Pharmacy",
+  stock: 100,
+  prescription:p,
+  },
+  {
+  name: "Bromocriptine",
+  image: "images/MD/13.png",
+  store: "MD Pharmacy",
+  stock: 50,
+  prescription:p,
+  },
+  {
+  name: "Escitalopram",
+  image: "images/MD/14.png",
+  store: "MD Pharmacy",
+  stock: 250,
+  prescription:p,
+  },
+  {
+  name: "Bonamine",
+  image: "images/MD/15.png",
+  store: "MD Pharmacy",
+  stock: 150,
+  prescription: 'Over-the-counter'
+  },
+  {
+  name: "Desvenlafaxine",
+  image: "images/MD/16.png",
+  store: "MD Pharmacy",
+  stock: 175,
+  prescription:p,
+  },
+  {
+  name: "Alendronate",
+  image: "images/MD/17.png",
+  store: "MD Pharmacy",
+  stock: 225,
+  prescription:p,
+  },
+  {
+  name: "Acyclovir",
+  image: "images/MD/18.png",
+  store: "MD Pharmacy",
+  stock: 200,
+  prescription:p,
+  },
+  {name:"Albuterol", image:"images/MD/19.png", store:"MD Pharmacy", stock: 250, prescription: 'Prescription Needed'},
+{name:"Alfuzosin", image:"images/MD/20.png", store:"MD Pharmacy", stock: 250, prescription: 'Prescription Needed'},
+{name:"Olanzapine", image:"images/MD/21.png", store:"MD Pharmacy", stock: 250, prescription: 'Prescription Needed'},
+{name:"Risperidone", image:"images/MD/22.png", store:"MD Pharmacy", stock: 250, prescription: 'Prescription Needed'},
+{name:"Amoxicillin", image:"images/MD/23.png", store:"MD Pharmacy", stock: 250, prescription: 'Prescription Needed'},
+{name:"Carmellose", image:"images/MD/24.png", store:"MD Pharmacy",stock:12, prescription: 'Prescription Needed'},
+{name:"Basagine", image:"images/MD/25.png", store:"MD Pharmacy", stock: 250, prescription: 'Prescription Needed'},
+
+{name:'Cozaar Lozartan', image:'images/MD/1.png', store:'MD Pharmacy', stock:250, prescription: 'Over-the-counter'},
+
+
+
 
 /** LZ Pharmacy */
-{name:"Naproxen", image:"images/LZ/1.png", store:"LZ Pharmacy", stock: 11},
-{name:"Folic acid", image:"images/LZ/2.png", store:"LZ Pharmacy", stock: 11},
-{name:"Ambroxol", image:"images/LZ/3.png", store:"LZ Pharmacy", stock: 10},
+ // Naproxen: Over-the-counter
+// Folic acid: Prescription Needed
+// Ambroxol: Over-the-counter
+// Dolfenal: Over-the-counter
+// Decolgen: Over-the-counter
+// Alaxan FR: Over-the-counter
+// Neurogen: Over-the-counter
+// Myra-E: Over-the-counter
+// Centrum: Over-the-counter
+// Enervon: Over-the-counter
+// Stresstabs: Over-the-counter
+// Aspirin: Over-the-counter
+// Fluimusil: Over-the-counter
+// Disudrin: Over-the-counter
+// Amlodipine: Over-the-counter
+// Lomotil: Over-the-counter
+// Bonamine: Over-the-counter
+// Neobloc: Over-the-counter
+// Tuseran: Over-the-counter
+// Medicol: Over-the-counter
+// Ponstan: Over-the-counter
+// Trimetazidine: Prescription Needed
+// Clopidogrel: Prescription Needed
+// Atorvastatin: Prescription Needed
+// Candesartan: Prescription Needed
+{name:"Naproxen", image:"images/LZ/1.png", store:"LZ Pharmacy", stock: 11, prescription: 'Over-the-counter'},
+{name:"Folic acid", image:"images/LZ/2.png", store:"LZ Pharmacy", stock: 11, prescription: 'Prescription Needed'},
+{name:"Ambroxol", image:"images/LZ/3.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
 
-{name:"Dolfenal", image:"images/LZ/4.png", store:"LZ Pharmacy", stock: 10},
-{name:"Decolgen", image:"images/LZ/5.png", store:"LZ Pharmacy", stock: 10},
-{name:"Alaxan FR", image:"images/LZ/6.png", store:"LZ Pharmacy", stock: 10},
-{name:"Neurogen", image:"images/LZ/7.png", store:"LZ Pharmacy", stock: 10},
-{name:"Myra-E", image:"images/LZ/8.png", store:"LZ Pharmacy", stock:11},
-{name:"Centrum", image:"images/LZ/9.png", store:"LZ Pharmacy", stock:11},
-{name:"Enervon", image:"images/LZ/10.png", store:"LZ Pharmacy", stock: 11},
-{name:"Stresstabs", image:"images/LZ/11.png", store:"LZ Pharmacy", stock: 10},
-{name:"Aspirin", image:"images/LZ/12.png", store:"LZ Pharmacy", stock: 10},
-{name:"Fluimusil", image:"images/LZ/13.png", store:"LZ Pharmacy", stock: 10},
-{name:"Disudrin", image:"images/LZ/14.png", store:"LZ Pharmacy", stock: 11},
-{name:"Amlodipine", image:"images/LZ/15.png", store:"LZ Pharmacy", stock: 10},
-{name:"Lomotil", image:"images/LZ/16.png", store:"LZ Pharmacy", stock: 10},
-{name:"Bonamine", image:"images/LZ/17.png", store:"LZ Pharmacy", stock: 10},
-{name:"Neobloc", image:"images/LZ/18.png", store:"LZ Pharmacy", stock: 10},
-{name:"Tuseran", image:"images/LZ/19.png", store:"LZ Pharmacy", stock: 10},
-{name:"Medicol", image:"images/LZ/20.png", store:"LZ Pharmacy", stock: 10},
-{name:"Ponstan", image:"images/LZ/21.png", store:"LZ Pharmacy", stock: 10},
-{name:"Trimetazidine", image:"images/LZ/22.png", store:"LZ Pharmacy", stock: 10},
-{name:"Clopidogrel", image:"images/LZ/23.png", store:"LZ Pharmacy", stock: 10},
-{name:"Atorvastatin", image:"images/LZ/24.png", store:"LZ Pharmacy", stock: 10},
-{name:"Candesartan", image:"images/LZ/25.png", store:"LZ Pharmacy", stock: 10},
+{name:"Dolfenal", image:"images/LZ/4.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Decolgen", image:"images/LZ/5.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Alaxan FR", image:"images/LZ/6.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Neurogen", image:"images/LZ/7.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Myra-E", image:"images/LZ/8.png", store:"LZ Pharmacy", stock:11, prescription: 'Over-the-counter'},
+{name:"Centrum", image:"images/LZ/9.png", store:"LZ Pharmacy", stock:11, prescription: 'Over-the-counter'},
+{name:"Enervon", image:"images/LZ/10.png", store:"LZ Pharmacy", stock: 11, prescription: 'Over-the-counter'},
+{name:"Stresstabs", image:"images/LZ/11.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Aspirin", image:"images/LZ/12.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Fluimusil", image:"images/LZ/13.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Disudrin", image:"images/LZ/14.png", store:"LZ Pharmacy", stock: 11, prescription: 'Over-the-counter'},
+{name:"Amlodipine", image:"images/LZ/15.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Lomotil", image:"images/LZ/16.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Bonamine", image:"images/LZ/17.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Neobloc", image:"images/LZ/18.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Tuseran", image:"images/LZ/19.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Medicol", image:"images/LZ/20.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Ponstan", image:"images/LZ/21.png", store:"LZ Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Trimetazidine", image:"images/LZ/22.png", store:"LZ Pharmacy", stock: 10, prescription: 'Prescription Needed'},  
+{name:"Clopidogrel", image:"images/LZ/23.png", store:"LZ Pharmacy", stock: 10, prescription: 'Prescription Needed'},
+{name:"Atorvastatin", image:"images/LZ/24.png", store:"LZ Pharmacy", stock: 10, prescription: 'Prescription Needed'},
+{name:"Candesartan", image:"images/LZ/25.png", store:"LZ Pharmacy", stock: 10, prescription: 'Prescription Needed'},
 // ** CM Pharmacy */
 
-{name:"Naproxen", image:"images/CM/1.png", store:"CM Pharmacy", stock: 10},
-{name:"Folic acid", image:"images/CM/2.png", store:"CM Pharmacy", stock: 10},
-{name:"Ambroxol", image:"images/CM/3.png", store:"CM Pharmacy", stock: 100},
-{name:"Dolfenal", image:"images/CM/4.png", store:"CM Pharmacy", stock: 100},
-{name:"Decolgen", image:"images/CM/5.png", store:"CM Pharmacy", stock: 103},
-{name:"Alaxan FR", image:"images/CM/6.png", store:"CM Pharmacy", stock: 120},
-{name:"Neurogen", image:"images/CM/7.png", store:"CM Pharmacy", stock: 103},
-{name:"Myra-E", image:"images/CM/8.png", store:"CM Pharmacy", stock: 10},
-{name:"Centrum", image:"images/CM/9.png", store:"CM Pharmacy", stock: 10},
-{name:"Enervon", image:"images/CM/10.png", store:"CM Pharmacy", stock: 10},
-{name:"Stresstabs", image:"images/CM/11.png", store:"CM Pharmacy", stock: 10},
-{name:"Aspirin", image:"images/CM/12.png", store:"CM Pharmacy", stock: 10},
-{name:"Fluimusil", image:"images/CM/13.png", store:"CM Pharmacy", stock: 10},
-{name:"Disudrin", image:"images/CM/14.png", store:"CM Pharmacy", stock: 102},
-{name:"Amlodipine", image:"images/CM/15.png", store:"CM Pharmacy", stock: 120},
-{name:"Lomotil", image:"images/CM/16.png", store:"CM Pharmacy", stock: 101},
-{name:"Bonamine", image:"images/CM/17.png", store:"CM Pharmacy", stock: 130},
-{name:"Neobloc", image:"images/CM/18.png", store:"CM Pharmacy", stock: 130},
-{name:"Tuseran", image:"images/CM/19.png", store:"CM Pharmacy", stock: 105},
-{name:"Medicol", image:"images/CM/20.png", store:"CM Pharmacy", stock: 103},
-{name:"Ponstan", image:"images/CM/21.png", store:"CM Pharmacy", stock: 103},
-{name:"Trimetazidine", image:"images/CM/22.png", store:"CM Pharmacy", stock: 102},
-{name:"Clopidogrel", image:"images/CM/23.png", store:"CM Pharmacy", stock: 106},
-{name:"Atorvastatin", image:"images/CM/24.png", store:"CM Pharmacy", stock: 103},
-{name:"Candesartan", image:"images/CM/25.png", store:"CM Pharmacy", stock: 102},
+
+{name:"Naproxen", image:"images/CM/1.png", store:"CM Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Folic acid", image:"images/CM/2.png", store:"CM Pharmacy", stock: 10, prescription: 'Prescription Needed'},
+{name:"Ambroxol", image:"images/CM/3.png", store:"CM Pharmacy", stock: 100, prescription: 'Over-the-counter'},
+{name:"Dolfenal", image:"images/CM/4.png", store:"CM Pharmacy", stock: 100, prescription: 'Over-the-counter'},
+{name:"Decolgen", image:"images/CM/5.png", store:"CM Pharmacy", stock: 103, prescription: 'Over-the-counter'},
+{name:"Alaxan FR", image:"images/CM/6.png", store:"CM Pharmacy", stock: 120, prescription: 'Over-the-counter'},
+{name:"Neurogen", image:"images/CM/7.png", store:"CM Pharmacy", stock: 103, prescription: 'Over-the-counter'},
+{name:"Myra-E", image:"images/CM/8.png", store:"CM Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Centrum", image:"images/CM/9.png", store:"CM Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Enervon", image:"images/CM/10.png", store:"CM Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Stresstabs", image:"images/CM/11.png", store:"CM Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Aspirin", image:"images/CM/12.png", store:"CM Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Fluimusil", image:"images/CM/13.png", store:"CM Pharmacy", stock: 10, prescription: 'Over-the-counter'},
+{name:"Disudrin", image:"images/CM/14.png", store:"CM Pharmacy", stock: 102, prescription: 'Over-the-counter'},
+{name:"Amlodipine", image:"images/CM/15.png", store:"CM Pharmacy", stock: 120, prescription: 'Over-the-counter'},
+{name:"Lomotil", image:"images/CM/16.png", store:"CM Pharmacy", stock: 101, prescription: 'Over-the-counter'},
+{name:"Bonamine", image:"images/CM/17.png", store:"CM Pharmacy", stock: 130, prescription: 'Over-the-counter'},
+{name:"Neobloc", image:"images/CM/18.png", store:"CM Pharmacy", stock: 130, prescription: 'Over-the-counter'},
+{name:"Tuseran", image:"images/CM/19.png", store:"CM Pharmacy", stock: 105, prescription: 'Over-the-counter'},
+{name:"Medicol", image:"images/CM/20.png", store:"CM Pharmacy", stock: 103, prescription: 'Over-the-counter'},
+{name:"Ponstan", image:"images/CM/21.png", store:"CM Pharmacy", stock: 103, prescription: 'Over-the-counter'},
+{name:"Trimetazidine", image:"images/CM/22.png", store:"CM Pharmacy", stock: 102, prescription: 'Prescription Needed'},
+{name:"Clopidogrel", image:"images/CM/23.png", store:"CM Pharmacy", stock: 106, prescription: 'Prescription Needed'},
+{name:"Atorvastatin", image:"images/CM/24.png", store:"CM Pharmacy", stock: 103, prescription: 'Prescription Needed'},
+{name:"Candesartan", image:"images/CM/25.png", store:"CM Pharmacy", stock: 102, prescription: 'Prescription Needed'},
 
 ];
 
