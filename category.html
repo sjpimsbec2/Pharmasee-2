@@ -554,6 +554,14 @@ Stock: __ **/
   modal.style.display = "none";
 }
 
+function makeArrayLowercase(array){
+  var newArray = [];
+  $.each(array, function(_,obj) {
+    newArray.push(obj.toLowerCase());
+  });
+  return newArray;
+}
+
 
 function filterTheMedicine(category){
   // close the modal
@@ -565,7 +573,13 @@ function filterTheMedicine(category){
   var medicineWithCategory = [];
   $.each(DESCRIPTION, function(key, value) {
     console.log(key, value);
-    if(value.category.includes(category)){
+    console.log(typeof(value.category));
+    console.log(typeof(category));
+    console.log(value.category);
+    x = makeArrayLowercase(value.category);
+    // valueCategory = value.category.toLowerCase();
+    // categoryToSmall = category.toLowerCase();
+    if(x.includes(category.toLowerCase())){
       medicineWithCategory.push(key);
     }
   });
