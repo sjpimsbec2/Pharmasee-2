@@ -4,6 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("FONTS/glacial-indifference/GlacialIndifference-Regular.otf");
+  src:url("FONTS/glacial-indifference/GlacialIndifference-Regular.otf") format("opentype"),
+        url("FONTS/glacial-indifference/GlacialIndifference-Bold.otf") format("opentype");
+       
+
+}
+@font-face {
+  font-family: "GlacialIndifferenceBold";
+  src: url("FONTS/glacial-indifference/GlacialIndifference-Bold.otf");
+}
 body {
   font-family: "Lato", sans-serif;
 }
@@ -84,6 +96,101 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+ 
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ECEDDA;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* rounded corners */
+  border-radius: 40px;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.img-responsive{
+    /** crop square center **/
+    object-fit: cover;
+    /** make image responsive **/
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    /** let the image be centered **/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    
+}
+.data-here{
+    /** left justify **/
+    text-align: left;
+    /** add margin to the left relative to the screen size **/
+    margin-left: 18vw;
+    margin-right: 18vw;
+    /** make the items left justified **/
+    display: inline-flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    font-family: "GlacialIndifferenceBold";
+    font-weight: bolder;
+
+}
+.button-category-btn{
+    /** rounded **/
+    border-radius: 40px;
+    /** add margin to the left relative to the screen size **/
+    background-color: #FFF0A1;
+    /** widen   **/
+    height: 40px;
+
+}
+.filter-category-row{
+    /** padding top **/
+    padding-top: 20px;
+    /** center all items **/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 </style>
 <!-- local css only -->
 <link rel="stylesheet" href="css/card.css">
@@ -96,14 +203,18 @@ body {
 </head>
 <body onload="onStartAll()">
 
-<div id="mySidenav" class="sidenav">
+<div  id="mySidenav" class="sidenav">
   
   <a class="button-deck" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
  <div class="button-deck">
     <a href="index.html">Home</a>
  </div>
+
 <div class="button-deck">
-    <a href="pharmacy_store.html">Pharmacy</a>
+  <a href="pharmacy_store.html">Pharmacy</a>
+</div>
+<div class="button-deck">
+  <a href="category.html">Category</a>
 </div>
 <div class="button-deck">
     <a href="about.html">About</a>
@@ -124,8 +235,17 @@ body {
   <span id="button-snap" style="font-size:2rem;cursor:pointer" onclick="openNav()" >&#9776;</span>
 <img class="header" src="images/111.svg">
 </div>
-<div class="main-search">
+<div class="main-body-search">
+<div  class="main-search">
   <div class="row-search">
+    <!-- back button-->
+    <div class="back-button">
+      <a href="pharmacy_store.html"><i  style="color:white; font-size: x-large;" class="fa fa-arrow-left"></i></a>
+
+    </div>
+    <!--- spaces-->
+    <div class="space" style="width: 20px;">
+    </div>
     <div class="search-button">
       <input type="text" placeholder="Search.." id="search" width="50%"> 
       <!-- icon search--> 
@@ -135,12 +255,106 @@ body {
   </div>
  
 </div>
+
 <div class="row">
-    
+    <div class="column">
+      <div class="column">
+        <div class="card-store" onclick="filterByStore('CM Pharmacy')">
+          <div class="store-name">
+            <div class="name-sub">
+              CM
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              Gen. Luna St, Corner Javier St, San Juan
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
     <!-- STORE -->
-    <div id="tj-p" class="column">
+    <div class="column">
+      <div class="column">
+        <div class="card-store" onclick="filterByStore('DC Pharmacy')">
+          <div class="store-name">
+            <div class="name-sub">
+              DC
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              Kalayaan St, San Juan
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- STORE -->
+    <div class="column">
+      <div class="column">
+        <div class="card-store" onclick="filterByStore('DL Pharmacy')">
+          <div class="store-name">
+            <div class="name-sub">
+              DL
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              Kalayaan St, San Juan
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- STORE -->
+    <div class="column">
+      <div class="column">
+        <div class="card-store" onclick="filterByStore('LZ Pharmacy')">
+          <div class="store-name">
+            <div class="name-sub">
+              LZ
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              Marasigan St, San Juan
+                        </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- STORE -->
+    <div  class="column">
       <div class="column">
         <div class="card-store">
+          <div class="store-name">
+            <div onclick="filterByStore('MD Pharmacy')" class="name-sub">
+              MD
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              Marasigan St, San Juan
+                        </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- STORE -->
+    <div  class="column">
+      <div class="column">
+        <div class="card-store" onclick="filterByStore('TJ Pharmacy')">
           <div class="store-name">
             <div class="name-sub">
               TJ
@@ -156,200 +370,59 @@ body {
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="medicineName"></div>
+      <div class="data-here">
+          <!-- add data-->
+      </div>
+    </div>
+  
+  </div>
+
     
   
 <!-- add the medicine js-->
+<script src="medicine.js"></script>
 <script src="pharma.js"></script>
 <script>
-  /**
 
 
-**/
-var listOfMedicines = [
-      // TODO: other medicine store is CM Pharmacy
-      {name:'Naproxen',  image:"images/LZ/1.png", store:"LZ Pharmacy"},
-  {name:'Folic Acid tablet',  image:"images/LZ/2.png", store:"LZ Pharmacy"},
-  {name:'Ambroxol',  image:"images/LZ/3.png", store:"LZ Pharmacy"},
-  {name:'Dolfenal',  image:"images/LZ/4.png", store:"LZ Pharmacy"},
-  {name:'Decolgen',  image:"images/LZ/5.png", store:"LZ Pharmacy"},
-  {name:'Alaxan',  image:"images/LZ/6.png", store:"LZ Pharmacy"},
-  {name:'Neurogen E',  image:"images/LZ/7.png", store:"LZ Pharmacy"},
-  {name:'Myra-E',  image:"images/LZ/8.png", store:"LZ Pharmacy"},
-  {name:'Centrum Tablet',  image:"images/LZ/9.png", store:"LZ Pharmacy"},
-  {name:'Enervon (Adult)',  image:"images/LZ/10.png", store:"LZ Pharmacy"},
-  {name:'Stresstab',  image:"images/LZ/11.png", store:"LZ Pharmacy"},
-  /**
-   * Albuterol
-Alfuzosin
-Olanzapine
-Risperidone
-Amoxicillin
-Carmellose
-Basagine**
-**/
-{name:"Albuterol", image:"images/MD/19.png", store:"MD Pharmacy", stock: 10},
-{name:"Alfuzosin", image:"images/MD/20.png", store:"MD Pharmacy", stock: 10},
-{name:"Olanzapine", image:"images/MD/21.png", store:"MD Pharmacy", stock: 10},
-{name:"Risperidone", image:"images/MD/22.png", store:"MD Pharmacy", stock: 10},
-{name:"Amoxicillin", image:"images/MD/23.png", store:"MD Pharmacy", stock: 10},
-{name:"Carmellose", image:"images/MD/24.png", store:"MD Pharmacy", stock: 10},
-{name:"Basagine", image:"images/MD/25.png", store:"MD Pharmacy", stock: 10},
-/*Naproxen
-Folic acid
-Ambroxol
-Dolfenal
-Decolgen
-Alaxan FR
-Neurogen
-Myra-E
-Centrum 
-Enervon
-Stresstabs
-Aspirin
-Fluimusil 
-Disudrin
-Amlodipine
-Lomotil
-Bonamine
-Neobloc
-Tuseran
-Medicol
-Ponstan
-Trimetazidine
-Clopidogrel
-Atorvastatin
-Candesartan*/
-{name:"Naproxen", image:"images/LZ/1.png", store:"LZ Pharmacy", stock: 10},
-{name:"Folic acid", image:"images/LZ/2.png", store:"LZ Pharmacy", stock: 10},
-{name:"Ambroxol", image:"images/LZ/3.png", store:"LZ Pharmacy", stock: 10},
-
-{name:"Dolfenal", image:"images/LZ/4.png", store:"LZ Pharmacy", stock: 10},
-{name:"Decolgen", image:"images/LZ/5.png", store:"LZ Pharmacy", stock: 10},
-{name:"Alaxan FR", image:"images/LZ/6.png", store:"LZ Pharmacy", stock: 10},
-{name:"Neurogen", image:"images/LZ/7.png", store:"LZ Pharmacy", stock: 10},
-{name:"Myra-E", image:"images/LZ/8.png", store:"LZ Pharmacy", stock: 10},
-{name:"Centrum", image:"images/LZ/9.png", store:"LZ Pharmacy", stock: 10},
-{name:"Enervon", image:"images/LZ/10.png", store:"LZ Pharmacy", stock: 10},
-{name:"Stresstabs", image:"images/LZ/11.png", store:"LZ Pharmacy", stock: 10},
-{name:"Aspirin", image:"images/LZ/12.png", store:"LZ Pharmacy", stock: 10},
-{name:"Fluimusil", image:"images/LZ/13.png", store:"LZ Pharmacy", stock: 10},
-{name:"Disudrin", image:"images/LZ/14.png", store:"LZ Pharmacy", stock: 10},
-{name:"Amlodipine", image:"images/LZ/15.png", store:"LZ Pharmacy", stock: 10},
-{name:"Lomotil", image:"images/LZ/16.png", store:"LZ Pharmacy", stock: 10},
-{name:"Bonamine", image:"images/LZ/17.png", store:"LZ Pharmacy", stock: 10},
-{name:"Neobloc", image:"images/LZ/18.png", store:"LZ Pharmacy", stock: 10},
-{name:"Tuseran", image:"images/LZ/19.png", store:"LZ Pharmacy", stock: 10},
-{name:"Medicol", image:"images/LZ/20.png", store:"LZ Pharmacy", stock: 10},
-{name:"Ponstan", image:"images/LZ/21.png", store:"LZ Pharmacy", stock: 10},
-{name:"Trimetazidine", image:"images/LZ/22.png", store:"LZ Pharmacy", stock: 10},
-{name:"Clopidogrel", image:"images/LZ/23.png", store:"LZ Pharmacy", stock: 10},
-{name:"Atorvastatin", image:"images/LZ/24.png", store:"LZ Pharmacy", stock: 10},
-{name:"Candesartan", image:"images/LZ/25.png", store:"LZ Pharmacy", stock: 10},
-// **CM Pharmacy
-/*Naproxen
-Folic acid
-Ambroxol
-Dolfenal
-Decolgen
-Alaxan FR
-Neurogen
-Myra-E
-Centrum 
-Enervon
-Stresstabs
-Aspirin
-Fluimusil 
-Disudrin
-Amlodipine
-Lomotil
-Bonamine
-Neobloc
-Tuseran
-Medicol
-Ponstan
-Trimetazidine
-Clopidogrel
-Atorvastatin
-Candesartan*/
-{name:"Naproxen", image:"images/CM/1.png", store:"CM Pharmacy", stock: 10},
-{name:"Folic acid", image:"images/CM/2.png", store:"CM Pharmacy", stock: 10},
-{name:"Ambroxol", image:"images/CM/3.png", store:"CM Pharmacy", stock: 10},
-{name:"Dolfenal", image:"images/CM/4.png", store:"CM Pharmacy", stock: 10},
-{name:"Decolgen", image:"images/CM/5.png", store:"CM Pharmacy", stock: 10},
-{name:"Alaxan FR", image:"images/CM/6.png", store:"CM Pharmacy", stock: 10},
-{name:"Neurogen", image:"images/CM/7.png", store:"CM Pharmacy", stock: 10},
-{name:"Myra-E", image:"images/CM/8.png", store:"CM Pharmacy", stock: 10},
-{name:"Centrum", image:"images/CM/9.png", store:"CM Pharmacy", stock: 10},
-{name:"Enervon", image:"images/CM/10.png", store:"CM Pharmacy", stock: 10},
-{name:"Stresstabs", image:"images/CM/11.png", store:"CM Pharmacy", stock: 10},
-{name:"Aspirin", image:"images/CM/12.png", store:"CM Pharmacy", stock: 10},
-{name:"Fluimusil", image:"images/CM/13.png", store:"CM Pharmacy", stock: 10},
-{name:"Disudrin", image:"images/CM/14.png", store:"CM Pharmacy", stock: 10},
-{name:"Amlodipine", image:"images/CM/15.png", store:"CM Pharmacy", stock: 10},
-{name:"Lomotil", image:"images/CM/16.png", store:"CM Pharmacy", stock: 10},
-{name:"Bonamine", image:"images/CM/17.png", store:"CM Pharmacy", stock: 10},
-{name:"Neobloc", image:"images/CM/18.png", store:"CM Pharmacy", stock: 10},
-{name:"Tuseran", image:"images/CM/19.png", store:"CM Pharmacy", stock: 10},
-{name:"Medicol", image:"images/CM/20.png", store:"CM Pharmacy", stock: 10},
-{name:"Ponstan", image:"images/CM/21.png", store:"CM Pharmacy", stock: 10},
-{name:"Trimetazidine", image:"images/CM/22.png", store:"CM Pharmacy", stock: 10},
-{name:"Clopidogrel", image:"images/CM/23.png", store:"CM Pharmacy", stock: 10},
-{name:"Atorvastatin", image:"images/CM/24.png", store:"CM Pharmacy", stock: 10},
-{name:"Candesartan", image:"images/CM/25.png", store:"CM Pharmacy", stock: 10},
-
-
-
-
-
-
-
-];
-// display the medicine
-
-
-  function onStartAll(){
-    $(".row").html("");
-    for(var i = 0; i < listOfMedicines.length; i++){
-      var obj = listOfMedicines[i];
-      // crop the image
-      $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            <div class="store-tag">
-      ${obj.store}
-      </div>
-          <div class="card">
-            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
-          </div>
-          </div>
-          </div>`);
-    }
-    
-    }
-      
-   
-    $(function() {
+ 
+ storeFilter = 'LZ Pharmacy'
+listOfMedicines = listOfMedicines.filter(function(obj) {
+      return obj.store == storeFilter;
+    });
+  $(function() {
   $("#search").on("keyup", function() {
     $(".row").html("");
     var val = $.trim(this.value);
     var isContainData = false;
     var medicineSearch = [];
+    // filter list of medicines by store
+    
     if (val) {
       val = val.toLowerCase();
       $.each(listOfMedicines, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
-        if (obj.name.toLowerCase().indexOf(val) != -1) {
+       // include the store name
+       if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1) {
           medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
           $(".row").append(`
           <dv class="column">
           <div class="column">
-            <div class="store-tag">
+            <div class="store-tag" onclick="filterByStore('${obj.store}')">
               ${obj.store}
       </div>
-          <div class="card">
-            <img class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+          <div class="card ${obj.name}">
+            <img onclick="openModalPls('${obj.name}', '${obj.store}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
           </div>
           </div>
           </div>
@@ -363,9 +436,13 @@ Candesartan*/
 
       }
       );
+
+      // store search append as well
+      
     }
     if(medicineSearch.length == 0){
       $(".row").append(`
+      
       <div class="row-x">
           <div class="column">
           <div class="column">
@@ -377,10 +454,29 @@ Candesartan*/
           </div>
           </div>
             
+            
         `);
     }
   });
 });
+
+function onStartAll(){
+  $(".row").html("");
+  $.each(listOfMedicines, function(_,obj) {
+    $(".row").append(`
+    <dv class="column">
+    <div class="column">
+      <div class="store-tag" onclick="filterByStore('${obj.store}')">
+        ${obj.store}
+</div>
+    <div class="card ${obj.name}">
+      <img onclick="openModalPls('${obj.name}', '${obj.store}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+    </div>
+    </div>
+    </div>
+      `);
+  });
+}
 
 
   
@@ -392,6 +488,207 @@ Candesartan*/
   
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+  }
+  ////// ===== modal ====== /////
+  var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+  function openModalPls(medicineNameKey, storeName){
+   console.log(medicineNameKey);
+
+   // clear all the data
+    var data = document.getElementsByClassName("data-here")[0];
+    data.innerHTML = "";
+
+    /** 
+    Category: ___
+Description: ___
+Prescription: (kasi need daw po yung "Over-the-counter" na word)
+Stock: __ **/
+   modal.style.display = "block";
+  // get modal class but not the first one
+    var modalClass = modal.classList[1] + " --- " + name;
+    
+  // add data
+    var data = document.getElementsByClassName("data-here")[0];
+    console.log(document.getElementsByClassName("data-here"));
+    console.log(data);
+    // get the second class
+    var secondClass = data.classList[0];
+
+    // add data in medicineClass
+
+    
+    
+    // add image
+    var img = document.createElement("img");
+    // add class
+    img.classList.add("img-responsive");
+    // get the image
+    img.src = getTheImage(medicineNameKey, storeName);
+    // add the image
+
+   
+    data.appendChild(img);
+    
+      // add category
+      var category = document.createElement("p");
+    // add category with function on click to filter the medicine by category and the category is in the array
+    category.innerHTML = "Category: ";
+    toAnchorLinkWithOnClick = getTheDescription(medicineNameKey)[1];
+    for(var i = 0; i < toAnchorLinkWithOnClick.length; i++){
+      category.innerHTML += `<a 
+      style= "color: #000; text-decoration: underline; cursor: pointer;"
+      href="#" onclick="filterTheMedicine('${toAnchorLinkWithOnClick[i]}')">${toAnchorLinkWithOnClick[i]}</a>      <br>`;
+    }
+    data.appendChild(category);
+    
+    // add description
+    var description = document.createElement("p");
+    description.innerHTML = getTheDescription(medicineNameKey)[0];
+    console.log("TEST: "+getTheDescription(medicineNameKey))
+    
+    data.appendChild(description);
+
+    // add prescription
+    var prescription = document.createElement("p");
+    prescription.innerHTML =`Prescription: ${getThePrescription(medicineNameKey, storeName)}`;
+    data.appendChild(prescription);
+
+    // add new line
+    var newLine = document.createElement("p");
+    data.appendChild(newLine);
+    // add stock
+    var stock = document.createElement("p");
+    stock.innerHTML = `Stocks: ${getTheStock(medicineNameKey, storeName)}`;
+    data.appendChild(stock);
+
+
+  
+
+    
+
+
+  }
+
+  function getTheStock(medicineNameKey, storeName){
+    // find the index of the medicine
+    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
+    // get the image
+    nameOfMedicine = listOfMedicines[index].name;
+    stock = listOfMedicines[index].stock;
+    return stock;
+  }
+
+  function getThePrescription(medicineNameKey, storeName){
+    // find the index of the medicine
+    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
+    // get the image
+    nameOfMedicine = listOfMedicines[index].name;
+    prescription = listOfMedicines[index].prescription;
+    return prescription;
+  }
+
+  function getTheImage(medicineNameKey, storeName){
+    // find the index of the medicine
+    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
+    // get the image
+    nameOfMedicine = listOfMedicines[index].name;
+    image = listOfMedicines[index].image;
+    return image;
+  }
+  
+
+  function getTheDescription(medicineNameKey){
+  description = "";
+
+  console.log(`MEDICINE NAME KEY: ${medicineNameKey}`);
+  // find the index of the medicine
+  var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
+  console.log(`INDEX: ${index}`);
+  // get the description
+  nameOfMedicine = listOfMedicines[index].name;
+  description = DESCRIPTION[nameOfMedicine]["description"];
+  console.log(`DESCRIPTION: ${description}`);
+  // add category with the action button for category
+  var category = DESCRIPTION[nameOfMedicine]["category"];
+  console.log(`CATEGORY: ${category}`);
+  return [description, category];
+  }
+
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+function filterTheMedicine(category){
+  // close the modal
+  modal.style.display = "none";
+
+  // first is to filter the medicine by category
+  console.log(category);
+  // get all the medicine with the category in the DESCRIPTION map
+  var medicineWithCategory = [];
+  $.each(DESCRIPTION, function(key, value) {
+    console.log(key, value);
+    if(value.category.includes(category)){
+      medicineWithCategory.push(key);
+    }
+  });
+  console.log(medicineWithCategory);
+  // filter the medicine
+  $(".row").html("");
+  $.each(listOfMedicines, function(_,obj) {
+    if(medicineWithCategory.includes(obj.name)){
+      $(".row").append(`
+      <dv class="column">
+      <div class="column">
+        <div class="store-tag">
+          ${obj.store}
+  </div>
+      <div class="card ${obj.name}">
+        <img onclick="openModalPls('${obj.name}', '${obj.store}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+      </div>
+      </div>
+      </div>
+        `);
+    }
+  });
+}
+
+
+
+  function filterByStore(storeName){
+    console.log(storeName);
+    $(".row").html("");
+    $.each(listOfMedicines, function(_,obj) {
+      if(obj.store == storeName){
+        $(".row").append(`
+        <dv class="column">
+        <div class="column">
+          <div class="store-tag">
+            ${obj.store}
+    </div>
+        <div class="card ${obj.name}">
+          <img onclick="openModalPls('${obj.name}', '${obj.store}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
+        </div>
+        </div>
+        </div>
+          `);
+      }
+    });
   }
   </script>
 </body>
