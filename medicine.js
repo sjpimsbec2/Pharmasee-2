@@ -185,7 +185,7 @@ ASCOF Forte: Over-the-counter*/
   prescription: 'Prescription Needed'
   },
   {
-  name: "Carbidopa Levodopa",
+  name: "Levodopa Carbidopa",
   image: "images/MD/4.png",
   store: "MD Pharmacy",
   stock: 150,
@@ -649,7 +649,7 @@ var DESCRIPTION = {
     
       "Bonamine": {
       "description": "Used for the prevention and treatment of nausea, vomiting, and dizziness associated with motion sickness and vertigo.",
-      "category": ["Anti-emetics/Anti-vertigo"]
+      "category": ["Anti-emetics","Anti-vertigo"]
       },
       "Mefenamic Acid": {
       "description": "A nonsteroidal anti-inflammatory drug (NSAID) used for the relief of mild to moderate pain.",
@@ -736,7 +736,7 @@ var DESCRIPTION = {
 
         "Robitussin": {
           "description": "Medication used to treat cough and chest congestion by thinning mucus and making it easier to cough up.",
-          "category": ["Antitussives/Expectorants"]
+          "category": ["Antitussives","Expectorants"]
           },
           "Solmux": {
           "description": "Mucolytic medication used to treat cough and loosen phlegm or mucus in the airways to make it easier to cough up.",
@@ -768,7 +768,7 @@ var DESCRIPTION = {
           },
           "Plemex Forte": {
           "description": "Cough suppressant medication used to treat cough caused by respiratory tract infections, asthma, or other respiratory conditions.",
-          "category": ["Anti-cough/Anti-asthma"]
+          "category": ["Anti-cough","Anti-asthma"]
           },
           "Gingko Biloba": {
           "description": "Herbal supplement derived from the leaves of the gingko tree, used to improve memory, concentration, and overall cognitive function, as well as to reduce symptoms of anxiety and depression.",
@@ -834,7 +834,7 @@ var DESCRIPTION = {
             },
             "Amiodarone": {
             "description": "Antiarrhythmic medication used to treat and prevent certain types of irregular heartbeats.",
-            "category": ["Antiarrhythmics"]
+            "category": ["Antirhythmics"]
             },
             
             "Bromocriptine": {
@@ -847,7 +847,7 @@ var DESCRIPTION = {
               },
               "Bonamine": {
               "description": "Medication used to treat motion sickness, vertigo, and nausea.",
-              "category": ["Anti-emetics/Anti-vertigo"]
+              "category": ["Anti-emetics","Anti-vertigo"]
               },
               "Desvenlafaxine": {
               "description": "Antidepressant medication used to treat major depressive disorder.",
