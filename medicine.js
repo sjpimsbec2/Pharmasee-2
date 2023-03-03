@@ -834,7 +834,7 @@ var DESCRIPTION = {
             },
             "Amiodarone": {
             "description": "Antiarrhythmic medication used to treat and prevent certain types of irregular heartbeats.",
-            "category": ["Antirhythmics"]
+            "category": ["Antiarrhythmics"]
             },
             
             "Bromocriptine": {
