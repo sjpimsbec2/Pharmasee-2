@@ -312,12 +312,10 @@ listOfCategories = [
     {name:"Multivitamins", image:"images/CATEGORY/11.png"},
     {name:"Antiemetics", image:"images/CATEGORY/12.png"},
     {name:"Anti-emetics/Anti-vertigo", image:"images/CATEGORY/13.png"},
-    {name:"Antacids", image:"images/CATEGORY/14.png"},
-    {name:"Antiflatulent", image:"images/CATEGORY/14.png"},
+    {name:"Antacids/Antiflatulent", image:"images/CATEGORY/14.png"},
     {name:"Anti-motility", image:"images/CATEGORY/15.png"},
     {name:"Anti-gouts", image:"images/CATEGORY/16.png"},
-    {name:"Antitusives", image:"images/CATEGORY/17.png"},
-    {name:"Expectorants", image:"images/CATEGORY/17.png"},
+    {name:"Antitusives/Expectorants", image:"images/CATEGORY/17.png"},
     {name:"Mucolytics", image:"images/CATEGORY/18.png"},
     {name:"Anti-cough", image:"images/CATEGORY/19.png"},
     {name:"Anti-asthma", image:"images/CATEGORY/20.png"},
@@ -332,19 +330,29 @@ listOfCategories = [
 {name:"Antidepressants", image:"images/CATEGORY/30.png"},
 {name:"Antiparkinsonism", image:"images/CATEGORY/31.png"},
 
-{name:"Antbiotics", image:"images/CATEGORY/32.png"},
+{name:"Antibiotics", image:"images/CATEGORY/32.png"},
 {name:"Antipsychotics", image:"images/CATEGORY/33.png"},
 {name:"Antirhythmics", image:"images/CATEGORY/34.png"},
 {name:"Bispheosphonates", image:"images/CATEGORY/34.png"},
 {name:"Cold Sores", image:"images/CATEGORY/36.png"},
 {name:"Inhalation Solution", image:"images/CATEGORY/37.png"},
-{name:"Andergenic Blocking Agents", image:"images/CATEGORY/38.png"},
+{name:"Adrenergic Blocking Agents", image:"images/CATEGORY/38.png"},
 {name:"Eyedrops", image:"images/CATEGORY/39.png"},
 
 
 
 
 ];
+
+listOfCategories = listOfCategories.sort(function(a, b){
+    var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
+    if (nameA < nameB) //sort string ascending
+        return -1 
+    if (nameA > nameB)
+        return 1
+    return 0 //default return value (no sorting)
+});
+
 function loadData(){
     $(".row").html("");
     for(var i = 0; i < listOfCategories.length; i++){
