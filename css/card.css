@@ -173,6 +173,19 @@
     font-weight: bold;
   }
 
+  #button-snap{
+    font-size: 3rem;
+    color:#0342DF;
+    font-weight: bold;
+  }
+
+  /** mobile view **/
+  @media screen and (max-width: 600px) {
+    #button-snap{
+      font-size: 1.5rem;
+    }
+  }
+
   
  
 
