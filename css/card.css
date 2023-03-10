@@ -22,8 +22,11 @@
   /** center the cards **/
   .row{
     
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   
   /* Clear floats after the columns */

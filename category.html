@@ -345,7 +345,7 @@ function loadData(){
           $(".row").append(`
           <div class="column ">
     <div class="column">
-      <div class="store-tag" onclick="filterByStore('${obj.store}')">
+      <div class="store-tag">
         ${obj.store}
 </div>
     <div class="card ${obj.name}">
@@ -492,7 +492,7 @@ function filterTheMedicine(category){
       $(".row").append(`
       <div class="column ">
     <div class="column">
-      <div class="store-tag" onclick="filterByStore('${obj.store}')">
+      <div class="store-tag">
         ${obj.store}
 </div>
     <div class="card ${obj.name}">
@@ -530,7 +530,7 @@ function onStartAll(){
   $.each(listOfMedicines, function(_,obj) {
     $(".row").append(`<div class="column ">
     <div class="column">
-      <div class="store-tag" onclick="filterByStore('${obj.store}')">
+      <div class="store-tag">
         ${obj.store}
 </div>
     <div class="card ${obj.name}">
