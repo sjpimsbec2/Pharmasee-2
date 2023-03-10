@@ -152,6 +152,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin-left: auto;
     margin-right: auto;
 
+
     
 }
 .data-here{
@@ -200,7 +201,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
-<body onload="loadData()">
+<body onload="onStartAll()"></body>
 
 <div  id="mySidenav" class="sidenav">
   
@@ -208,12 +209,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="button-deck">
     <a href="index.html">Home</a>
  </div>
-\
+
 <div class="button-deck">
-    <a href="pharmacy_store.html">Pharmacy</a>
+  <a href="pharmacy_store.html">Pharmacy</a>
 </div>
 <div class="button-deck">
-    <a href="category.html">Category</a>
+  <a href="category.html">Category</a>
 </div>
 <div class="button-deck">
     <a href="about.html">About</a>
@@ -239,14 +240,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="row-search">
     <!-- back button-->
     <div class="back-button">
-      <a href="category.html"><i  style="color:white; font-size: x-large;" class="fa fa-arrow-left"></i></a>
+      <a href="pharmacy_store.html"><i  style="color:white; font-size: x-large;" class="fa fa-arrow-left"></i></a>
 
     </div>
+   
     <!--- spaces-->
     <div class="space" style="width: 20px;">
     </div>
     <div class="search-button">
-      <input type="text" placeholder="Search Categories only..." id="search" width="50%"> 
+      <input type="text" placeholder="Search.." id="search" width="50%"> 
       <!-- icon search--> 
       <button class="search-icon" type="submit"><i class="fa fa-search"></i></button> 
     
@@ -256,9 +258,80 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 
 <div class="row">
+  <!--- skdksdks-->
+
+      <!--- skdksdks-->
     
     <!-- STORE -->
-    
+    <div class="column">
+      <div class="column">
+        <div class="card-store" id="jnj">
+          <div class="store-name">
+            <div class="name-sub">
+              JNJ
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              Kalayaan St., Poblacion, San Juan, Batangas
+            </div>
+            <div class="location-store">
+              Owner: Neil Marundan
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- STORE -->
+    <div class="column">
+      <div class="column">
+        <div class="card-store" id="rs">
+          <div class="store-name">
+            <div class="name-sub">
+              R.S. Sevilla's 
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              Mojica St. Corner Marasigan St., Poblacion, San Juan, Batangas
+
+            </div>
+            <div class="location-store">
+              Owner: Ramonita S. Rosario
+
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- STORE -->
+    <div class="column">
+      <div class="column">
+        <div class="card-store" id="ys">
+          <div class="store-name">
+            <div class="name-sub">
+              Y.S. Atienza's 
+            </div>
+            <div class="name-sub">
+              Pharmacy
+            </div>
+            <div class="location-store">
+              General Luna St. Corner Javier St., Poblacion, San Juan, Batangas
+
+            </div>
+            <div class="location-store">
+              Owner: Yvonne Atienza
+
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="myModal" class="modal">
@@ -278,55 +351,62 @@ body {font-family: Arial, Helvetica, sans-serif;}
   
 <!-- add the medicine js-->
 <script src="medicine.js"></script>
+
 <script src="pharma.js"></script>
+<script type="module">
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getDatabase, ref, set, push, onValue, child, get, update, remove } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+       // for storing images
+                // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        import { getStorage, uploadBytesResumable, getDownloadURL, ref as sRef } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-storage.js";
+       
+        const firebaseConfig = {
+          apiKey: "AIzaSyDlP-Mv0Z_rii5KRTkjAMF0dId_fi3VAMA",
+          authDomain: "pharmasee-xd.firebaseapp.com",
+          projectId: "pharmasee-xd",
+          storageBucket: "pharmasee-xd.appspot.com",
+          messagingSenderId: "753856453030",
+          appId: "1:753856453030:web:7562788b9d1df272ded767",
+          measurementId: "G-C3GQNH438L"
+    
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        // reaal time database
+        const db = getDatabase();
+        const starCountRef = ref(db, 'pharmasee-xd');
+        var storage = getStorage();
+
+       // initialize storage cookies  
+        var listOfMedicines = [];
+        // get once the data then console log it
+        onValue(ref(db, 'pharmasee-xd'), (snapshot) => {
+          const data = snapshot.val();
+          let items = Object.values(data);
+          console.log(items);
+          
+          // get the data from the database
+          // map the data and get the values
+         
+        localStorage.setItem("listOfMedicines", JSON.stringify(items));
+        
+        
+        });
+
+
+        
+</script>
 <script>
-/*
-Fever
-Cough and Cold
-Diarrhea
-Pain Relievers
-Vitamins**/
-listOfCategories = [
-    {name:'Fever', image:'images/categ/1.png'},
-    {name: 'Diarrhea', image:'images/categ/2.png'},
-    {name: 'Cough and Cold', image:'images/categ/3.png'},
-    {name: 'Vitamins', image:'images/categ/6.png'},
-    
-    {name: 'Pain Relievers', image:'images/categ/5.png'},
-
-
-
-
-];
-
-/** 
-  Filter the category by 
- **/
-
-
-
-
-function loadData(){
-    $(".row").html("");
-    for(var i = 0; i < listOfCategories.length; i++){
-      var obj = listOfCategories[i];
-      // crop the image
-      $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            
-          <div class="card-category" onclick="filterTheMedicine('${obj.name}')">
-            <img class="card-test-category" src="${obj.image}" alt="${obj.name}" style="width:100%">
-          </div>
-          </div>
-          </div>`);
-    }
-    
-    }
  
-    listOfMedicines = JSON.parse(localStorage.getItem("listOfMedicines"));
+  listOfMedicines = JSON.parse(localStorage.getItem("listOfMedicines"));
   // filter by store
-  listOfMedicines = listOfMedicines.filter((item) => item.store == "JNJ Pharmacy");
+  listOfMedicines = listOfMedicines.filter((item) => item.store == "R.S. Sevilla's Pharmacy");
   $(function() {
   $("#search").on("keyup", function() {
     $(".row").html("");
@@ -478,10 +558,10 @@ function filterTheMedicine(category){
   console.log(category);
   // get all the medicine with the category in the DESCRIPTION map
   var medicineWithCategory = [];
-  $.each(listOfMedicines, function(key, value) {
+  $.each(DESCRIPTION, function(key, value) {
     console.log(key, value);
     if(value.category.includes(category)){
-      medicineWithCategory.push(value.name);
+      medicineWithCategory.push(key);
     }
   });
   console.log(medicineWithCategory);
