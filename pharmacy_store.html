@@ -258,6 +258,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 
 <div class="row">
+  <!--- skdksdks-->
+
+      <!--- skdksdks-->
     <div class="column">
       <div class="column">
         <div class="card-store" id="cm-p">
@@ -389,6 +392,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     
   
 <!-- add the medicine js-->
+<script src="medicine.js"></script>
 
 <script src="pharma.js"></script>
 <script type="module">
@@ -459,17 +463,36 @@ body {font-family: Arial, Helvetica, sans-serif;}
           console.log(obj);
           // crop the image
           $(".row").append(`
-          <dv class="column">
-          <div class="column">
-            <div class="store-tag" onclick="filterByStore('${obj.store}')">
-              ${obj.store}
+          <dv class="column ">
+    <div class="column">
+      <div class="store-tag" onclick="filterByStore('${obj.store}')">
+        ${obj.store}
+</div>
+    <div class="card ${obj.name}">
+      <img onclick="openModalPls(${obj.name}, ${obj.store})" class="card-test" src=${obj.image} alt="${obj.name}" >
+      <div class="price-tag" id="font-card">
+        ₱ ${obj.price}
       </div>
-          <div class="card ${obj.name}">
-            <div> {obj.name} </div>
-            <img onclick="openModalPls('${obj.name}', '${obj.store}')" class="card-test" src="" alt="${obj.name}" style="width:100%">
-          </div>
-          </div>
-          </div>
+      <div class="name-tag" id="font-card">
+        ${obj.name}
+      </div>
+      <div class="prescription" id="font-card-bold">
+        ${obj.prescription}
+      </div>
+     
+      <div class="avail" id="font-card-bold">
+        ${obj.available}
+      </div>
+      <div class="generic" id="font-card-bold">
+        Generic
+      </div>
+
+    
+      
+      
+       </div>
+    </div>
+    </div>
             `);
           isContainData = true;
         }
@@ -547,104 +570,12 @@ Stock: __ **/
     // get the second class
     var secondClass = data.classList[0];
 
-    // add data in medicineClass
-
-    
-    
-    // add image
-    var img = document.createElement("img");
-    // add class
-    img.classList.add("img-responsive");
-    // get the image
-    img.src = getTheImage(medicineNameKey, storeName);
-    // add the image
-
-   
-    data.appendChild(img);
-    
-      // add category
-      var category = document.createElement("p");
-    // add category with function on click to filter the medicine by category and the category is in the array
-    category.innerHTML = "Category: ";
-    toAnchorLinkWithOnClick = getTheDescription(medicineNameKey)[1];
-    for(var i = 0; i < toAnchorLinkWithOnClick.length; i++){
-      category.innerHTML += `<a 
-      style= "color: #000; text-decoration: underline; cursor: pointer;"
-      href="#" onclick="filterTheMedicine('${toAnchorLinkWithOnClick[i]}')">${toAnchorLinkWithOnClick[i]}</a>      <br>`;
-    }
-    data.appendChild(category);
-    
-    // add description
-    var description = document.createElement("p");
-    description.innerHTML = getTheDescription(medicineNameKey)[0];
-    console.log("TEST: "+getTheDescription(medicineNameKey))
-    
-    data.appendChild(description);
-
-    // add prescription
-    var prescription = document.createElement("p");
-    prescription.innerHTML =`Prescription: ${getThePrescription(medicineNameKey, storeName)}`;
-    data.appendChild(prescription);
-
-    // add new line
-    var newLine = document.createElement("p");
-    data.appendChild(newLine);
-    // add stock
-    var stock = document.createElement("p");
-    stock.innerHTML = `Stocks: ${getTheStock(medicineNameKey, storeName)}`;
-    data.appendChild(stock);
-
 
   
 
     
 
 
-  }
-
-  function getTheStock(medicineNameKey, storeName){
-    // find the index of the medicine
-    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
-    // get the image
-    nameOfMedicine = listOfMedicines[index].name;
-    stock = listOfMedicines[index].stock;
-    return stock;
-  }
-
-  function getThePrescription(medicineNameKey, storeName){
-    // find the index of the medicine
-    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
-    // get the image
-    nameOfMedicine = listOfMedicines[index].name;
-    prescription = listOfMedicines[index].prescription;
-    return prescription;
-  }
-
-  function getTheImage(medicineNameKey, storeName){
-    // find the index of the medicine
-    var index = listOfMedicines.findIndex(x => x.name === medicineNameKey && x.store === storeName);
-    // get the image
-    nameOfMedicine = listOfMedicines[index].name;
-    image = listOfMedicines[index].image;
-    return image;
-  }
-  
-
-  function getTheDescription(medicineNameKey){
-  description = "";
-
-  console.log(`MEDICINE NAME KEY: ${medicineNameKey}`);
-  // find the index of the medicine
-  var index = listOfMedicines.findIndex(x => x.name === medicineNameKey);
-  console.log(`INDEX: ${index}`);
-  // get the description
-  nameOfMedicine = listOfMedicines[index].name;
-  description = DESCRIPTION[nameOfMedicine]["description"];
-  console.log(`DESCRIPTION: ${description}`);
-  // add category with the action button for category
-  var category = DESCRIPTION[nameOfMedicine]["category"];
-  console.log(`CATEGORY: ${category}`);
-  return [description, category];
   }
 
 
