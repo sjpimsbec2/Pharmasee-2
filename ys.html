@@ -402,7 +402,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
         
 </script>
+<script src="components.js"></script>
 <script>
+
  
   listOfMedicines = JSON.parse(localStorage.getItem("listOfMedicines"));
   // filter by store
@@ -416,48 +418,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
     if (val) {
       val = val.toLowerCase();
       $.each(listOfMedicines, function(_,obj) {
-       // obj.stock to integer 
-        
-        
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
        // include the store name
        if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1) {
           medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
-          $(".row").append(`
-          <div class="column ">
-    <div class="column">
-      <div class="store-tag"  >
-        ${obj.store}
-</div>
-    <div class="card ${obj.name}">
-      <img onclick="openModalPls(${obj.name}, ${obj.store})" class="card-test" src=${obj.image} alt="${obj.name}" >
-      <div class="price-tag" id="font-card">
-        ${obj.price}
-      </div>
-      <div class="name-tag" id="font-card">
-        ${obj.name}
-      </div>
-      <div class="prescription" id="font-card-bold">
-        ${obj.prescription}
-      </div>
-     
-      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
-        ${ (parseInt(obj.stock)) > 0 ? "Available" : "Not Available"}
-
-      </div>
-      <div class="generic" id="font-card-bold">
-        Generic
-      </div>
-
-    
-      
-      
-       </div>
-    </div>
-    </div>
-            `);
+          $(".row").append(
+            ComponentCard(obj)
+          );
           isContainData = true;
         }
         else{
@@ -511,8 +480,8 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-  function openModalPls(medicineNameKey, storeName){
-   console.log(medicineNameKey);
+  function openModalPls(obj){
+   console.log(obj);
 
    // clear all the data
     var data = document.getElementsByClassName("data-here")[0];
@@ -573,39 +542,7 @@ function filterTheMedicine(category){
   $(".row").html("");
   $.each(listOfMedicines, function(_,obj) {
     if(medicineWithCategory.includes(obj.name)){
-      $(".row").append(`
-      <div class="column ">
-    <div class="column">
-      <div class="store-tag"  >
-        ${obj.store}
-</div>
-    <div class="card ${obj.name}">
-      <img onclick="openModalPls(${obj.name}, ${obj.store})" class="card-test" src=${obj.image} alt="${obj.name}" >
-      <div class="price-tag" id="font-card">
-        ${obj.price}
-      </div>
-      <div class="name-tag" id="font-card">
-        ${obj.name}
-      </div>
-      <div class="prescription" id="font-card-bold">
-        ${obj.prescription}
-      </div>
-     
-      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
-        ${ (parseInt(obj.stock)) > 0 ? "Available" : "Not Available"}
-
-      </div>
-      <div class="generic" id="font-card-bold">
-        Generic
-      </div>
-
-    
-      
-      
-       </div>
-    </div>
-    </div>
-        `);
+      $(".row").append(ComponentCard(obj));
     }
   });
 }
@@ -613,41 +550,16 @@ function filterTheMedicine(category){
 function onStartAll(){
   $(".row").html("");
   $.each(listOfMedicines, function(_,obj) {
-    $(".row").append(`<div class="column ">
-    <div class="column">
-      <div class="store-tag"  >
-        ${obj.store}
-</div>
-    <div class="card ${obj.name}">
-      <img onclick="openModalPls(${obj.name}, ${obj.store})" class="card-test" src=${obj.image} alt="${obj.name}" >
-      <div class="price-tag" id="font-card">
-        ${obj.price}
-      </div>
-      <div class="name-tag" id="font-card">
-        ${obj.name}
-      </div>
-      <div class="prescription" id="font-card-bold">
-        ${obj.prescription}
-      </div>
-     
-      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
-        ${ (parseInt(obj.stock)) > 0 ? "Available" : "Not Available"}
-
-      </div>
-      <div class="generic" id="font-card-bold">
-        Generic
-      </div>
-
-    
-      
-      
-       </div>
-    </div>
-    </div>
-            `);
+    $(".row").append(
+      ComponentCard(obj)
+    );
   });
 }
 
+function removeSingleQuote(str){
+  const result = str.replaceAll("'", "\\'");
+  return result;
+}
 
 
   function filterByStore(storeName){
@@ -655,21 +567,11 @@ function onStartAll(){
     $(".row").html("");
     $.each(listOfMedicines, function(_,obj) {
       if(obj.store == storeName){
-        $(".row").append(`
-        <dv class="column">
-        <div class="column">
-          <div class="store-tag">
-            ${obj.store}
-    </div>
-        <div class="card ${obj.name}">
-          <img onclick="openModalPls('${obj.name}', '${obj.store}')" class="card-test" src="${obj.image}" alt="${obj.name}" style="width:100%">
-        </div>
-        </div>
-        </div>
-          `);
+        $(".row").append(
+          ComponentCard(obj));
       }
     });
   }
   </script>
 </body>
-</html> 
+</html>
