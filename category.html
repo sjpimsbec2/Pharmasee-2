@@ -337,7 +337,10 @@ function loadData(){
       $.each(listOfMedicines, function(_,obj) {
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
        // include the store name
-       if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1) {
+       if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1 
+       || obj.category.toLowerCase().indexOf(val) != -1) {
+         
+       
           medicineSearch.push(obj.name);
           console.log(obj);
           // crop the image
