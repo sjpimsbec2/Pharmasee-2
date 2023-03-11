@@ -441,7 +441,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
       </div>
      
       <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
-        ${obj.available}
+        ${ (parseInt(obj.stock)) > 0 ? "Available" : "Not Available"}
+ 
       </div>
       <div class="generic" id="font-card-bold">
         Generic
@@ -588,7 +589,8 @@ function filterTheMedicine(category){
       </div>
      
       <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
-        ${obj.available}
+        ${ (parseInt(obj.stock)) > 0 ? "Available" : "Not Available"}
+
       </div>
       <div class="generic" id="font-card-bold">
         Generic
@@ -626,7 +628,8 @@ function onStartAll(){
       </div>
      
       <div class=${(parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
-        ${obj.available}
+        ${ (parseInt(obj.stock)) > 0 ? "Available" : "Not Available"}
+
       </div>
       <div class="generic" id="font-card-bold">
         Generic
