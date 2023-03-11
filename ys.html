@@ -416,6 +416,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
     if (val) {
       val = val.toLowerCase();
       $.each(listOfMedicines, function(_,obj) {
+       // obj.stock to integer 
+        
+        
        // console.log(val,obj.name.toLowerCase().indexOf(val),obj)
        // include the store name
        if (obj.name.toLowerCase().indexOf(val) != -1 || obj.store.toLowerCase().indexOf(val) != -1) {
@@ -440,7 +443,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         ${obj.prescription}
       </div>
      
-      <div class="avail" id="font-card-bold">
+      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
         ${obj.available}
       </div>
       <div class="generic" id="font-card-bold">
@@ -587,7 +590,7 @@ function filterTheMedicine(category){
         ${obj.prescription}
       </div>
      
-      <div class="avail" id="font-card-bold">
+      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
         ${obj.available}
       </div>
       <div class="generic" id="font-card-bold">
@@ -625,8 +628,8 @@ function onStartAll(){
         ${obj.prescription}
       </div>
      
-      <div class="avail" id="font-card-bold">
-        ${obj.available}
+      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
+         ${obj.available}
       </div>
       <div class="generic" id="font-card-bold">
         Generic

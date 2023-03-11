@@ -208,7 +208,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="button-deck">
     <a href="index.html">Home</a>
  </div>
-\
+
 <div class="button-deck">
     <a href="pharmacy_store.html">Pharmacy</a>
 </div>
@@ -359,7 +359,7 @@ function loadData(){
         ${obj.prescription}
       </div>
      
-      <div class="avail" id="font-card-bold">
+      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
         ${obj.available}
       </div>
       <div class="generic" id="font-card-bold">
@@ -506,7 +506,7 @@ function filterTheMedicine(category){
         ${obj.prescription}
       </div>
      
-      <div class="avail" id="font-card-bold">
+      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
         ${obj.available}
       </div>
       <div class="generic" id="font-card-bold">
@@ -544,7 +544,7 @@ function onStartAll(){
         ${obj.prescription}
       </div>
      
-      <div class="avail" id="font-card-bold">
+      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
         ${obj.available}
       </div>
       <div class="generic" id="font-card-bold">

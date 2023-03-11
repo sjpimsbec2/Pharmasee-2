@@ -438,8 +438,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
         ${obj.prescription}
       </div>
      
-      <div class="avail" id="font-card-bold">
-        ${obj.available}
+      <div class=${ (parseInt(obj.stock)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
+          ${obj.available}
       </div>
       <div class="generic" id="font-card-bold">
         Generic
