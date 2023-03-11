@@ -326,7 +326,6 @@ function loadData(){
  
     listOfMedicines = JSON.parse(localStorage.getItem("listOfMedicines"));
   // filter by store
-  listOfMedicines = listOfMedicines.filter((item) => item.store == "JNJ Pharmacy");
   $(function() {
   $("#search").on("keyup", function() {
     $(".row").html("");
