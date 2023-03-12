@@ -148,6 +148,32 @@
     color:#0342DF ;
     font-weight: bold;
   }
+/** MODAL **/
+  .img-responsive-modal{
+    width: 50%;
+    height: 40%;
+    object-fit: sca;
+  }
+
+  .modal-content {
+    background-color: #ECEDDA;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    /* rounded corners */
+    border-radius: 40px;
+    /** font **/
+    font-family: 'GlacialIndifference';
+  }
+  .data-here{
+   /** make it row **/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+  
+  
 
   .store-tag{
     border-color: #131212;
@@ -191,6 +217,8 @@
     color:#0342DF;
     font-weight: bold;
   }
+
+
 
   /** mobile view **/
   @media screen and (max-width: 600px) {
