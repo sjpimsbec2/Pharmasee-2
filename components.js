@@ -60,7 +60,7 @@ function openModalPls(storeName, imageLink, nameID, stocks, completeName, catego
     // if available
     data.innerHTML += `<div class=${ (parseInt(stocks)) > 0 ? "avail" : "not-avail"} id="font-card-bold">
     ${ (parseInt(stocks)) > 0 ? "Available" : "Not Available"}  `;
-    data.innerHTML += `<div class="stock"> ${stocks} </div>`;
+    data.innerHTML += `<div class="stock"> Stocks: ${stocks} </div>`;
     
     data.innerHTML += `<div class="space" style="padding-top:5%;"></div>`;
     
